@@ -1,0 +1,127 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  --header-height: 3.5rem;
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  /*For more colors visit: https://colors.dopely.top/color-pedia*/
+
+    --hue: 0; /* Hue irrelevant as we are leaning into black */
+
+    /* Primary Color: Vibrant Red */
+    --first-color: hsl(0, 100%, 60%); /* #FF4C4C - For accents, buttons, highlights */
+    --first-color-light: hsl(0, 100%, 70%); /* Lighter red for hover effects */
+    --first-color-alt: hsl(0, 100%, 50%); /* Deeper red for active states */
+
+    /* Secondary Color: Dark Charcoal */
+    --title-color: hsl(0, 0%, 95%); /* #F5F5F5 - Almost white for titles */
+    --text-color: hsl(0, 0%, 85%); /* Light gray for readable text */
+    --text-color-light: hsl(0, 0%, 70%); /* Softer gray for secondary text */
+    --body-color: hsl(0, 0%, 5%); /* #0D0D0D - Deep black for main background */
+    --container-color: hsl(0, 0%, 10%); /* #1A1A1A - Slightly lighter black for containers */
+
+    /* Accent Color: Gold/Yellow */
+    --accent-color: hsl(50, 100%, 50%); /* #FFD700 - For badges, icons, highlights */
+    --accent-color-light: hsl(50, 100%, 70%); /* Lighter gold for hover effects */
+
+    /* Scrollbar Colors */
+    --scrollbar-bg: hsl(0, 0%, 10%); /* Matching container color */
+    --scrollbar-thumb: hsl(0, 100%, 60%); /* Vibrant red for scrollbar thumb */
+    --scrollbar-thumb-hover: hsl(0, 100%, 70%); /* Lighter red for hover */
+
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: "Montserrat", "Roboto";
+  --biggest-font-size: 3rem;
+  --big-font-size: 1.5rem;
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1rem;
+  --normal-font-size: .938rem;
+  --small-font-size: .813rem;
+
+  /*========== Font weight ==========*/
+  --font-regular: 400;
+  --font-semi-bold: 600;
+  --font-bold: 700;
+
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+/*========== Responsive typography==========*/
+@media screen and (min-width: 1150px) {
+  :root {
+    --biggest-font-size: 5.5rem;
+    --big-font-size: 2.75rem;
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1.125rem;
+    --small-font-size: .875rem;
+  }
+}
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body,
+input,
+textarea,
+button {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+}
+
+body {
+  background-color: var(--body-color);
+  color: var(--text-color);
+}
+
+input,
+button,
+textarea {
+  border: none;
+  outline: none;
+}
+
+h1, h2, h3 {
+  color: var(--title-color);
+  font-weight: var(--font-semi-bold);
+}
+
+p {
+  line-height: 130%;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Reset */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
