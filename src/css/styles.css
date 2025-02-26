@@ -266,8 +266,8 @@ body, html {
   display: none;
 }
 
-/* Navigation for mobile devices */
 @media screen and (max-width: 1150px) {
+  /* Navigation for mobile devices */
   .nav__toggle {
     display: block;
   }
@@ -360,11 +360,46 @@ section {
 }
 /*=============== MAIN ===============*/
 /* ---------- WELCOME SECTION ---------- */
-.welcome{
-  background-image: url();
+.welcome {
+  display: flex;
+  background: url('../images/background_imgs/hero_sectionbgimg.png');
+  background-size: cover;
+  background-position: center;
+  padding: 5% 10%;
+  height: 89vh;
+  margin-top: 5rem;
+  align-items: center;
 }
-
-/* Responsive Design for Welcome Section */
+.welcome .welcome_container {
+  width: 300px;
+}
+.welcome .welcome_container h3 {
+  font-size: var(--small-font-size);
+  margin-bottom: 10px;
+}
+.welcome .welcome_container h1 {
+  margin-bottom: 10px;
+  font-size: var(--big-font-size);
+  font-weight: var(--font-bold);
+}
+.welcome .welcome_container .join_btn {
+  background-color: var(--first-color);
+  width: 100px;
+  text-align: center;
+  padding: 10px;
+  box-shadow: 2px 2px 20px hsl(236, 100%, 67%);
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+}
+.welcome .welcome_container .join_btn:hover{
+  background-color: var(--first-color-light);
+  transform: scale(1.2);
+  box-shadow: 12px 12px 20px hsl(236, 91%, 59%);
+}
+.welcome .welcome_container .join_btn a {
+  color: var(--title-color);
+  font-size: var(--small-font-size);
+}
 
 /*=============== SCROLL UP ===============*/
 .scrollup {
@@ -390,15 +425,43 @@ section {
 }
 
 /*=============== BREAKPOINTS ===============*/
-/* For Small devices */
-@media (min-width: 600px) {
+/* For Small devices (phones) */
+@media (max-width: 600px) {
+  .welcome {
+    padding: 50% 2%;
+    flex-direction: column;
+    text-align: left;
+  }
+  .welcome .welcome_container {
+    width: 70%;
+  }
+  .welcome .welcome_container h3 {
+    font-size: var(--normal-font-size);
+  }
+  .welcome .welcome_container h1 {
+    font-size: var(--biggest-font-size);
+  }
+}
 
+/* For Medium devices (tablets, small laptops) */
+@media (min-width: 601px) and (max-width: 1200px) {
+  .welcome {
+    padding: 5% 8%;
+  }
+  .welcome .welcome_container {
+    width: 250px;
+  }
+  .welcome .welcome_container h3 {
+    font-size: var(--normal-font-size);
+  }
+  .welcome .welcome_container h1 {
+    font-size: var(--biggest-font-size);
+  }
 }
-/* For mediuk devices */
-@media (min-width: 900px) {
-  
-}
-/* For Large devices */
-@media (min-width: 1200px) {
-  
+
+/* For Large devices (desktops) */
+@media (min-width: 1201px) {
+  .welcome {
+    padding: 5% 15%;
+  }
 }
