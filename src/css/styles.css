@@ -2,7 +2,7 @@
 
 /*=============== VARIABLES CSS ===============*/
 :root {
-  --header-height: 3.5rem;
+  --header-height: 5rem;
   --hue: 260;
   
   /* Primary Color: Vibrant Purple */
@@ -239,8 +239,12 @@ body, html {
   font-size: 2rem;
   color: var(--accent-color-light);
   cursor: pointer;
-  box-shadow: var(--shadow-glow);
   border: none;
+  transition: transform 0.5s;
+}
+.membership_bar i:hover {
+  transform: rotate(360deg) scale(1.5);
+  color: var(--accent-color);
 }
 .membership_bar button {
   background: var(--first-color);
@@ -249,11 +253,15 @@ body, html {
   padding: 0.5rem 1rem;
   border: none;
   cursor: pointer;
+  transition: background-color 0.2s;
+}
+.membership_bar button:hover {
+  background-color: var(--first-color-light);
 }
 .nav__toggle,
 .nav__close {
   font-size: 1.5rem;
-  color: #fff;
+  color: var(--title-color);
   cursor: pointer;
   display: none;
 }
@@ -320,12 +328,6 @@ body, html {
 .active-link::after{
   width: 30%;
 }
-/*=============== SECTION ===============*/
-section {
-  padding: 80px 20px;
-  background: var(--container-color);
-  color: var(--title-color);
-}
 
 /* Add blur header */
 .blur-header::after {
@@ -350,9 +352,17 @@ section {
   width: 30%;
 }
 
+/*=============== SECTION ===============*/
+section {
+  padding: 80px 20px;
+  background: var(--container-color);
+  color: var(--title-color);
+}
 /*=============== MAIN ===============*/
 /* ---------- WELCOME SECTION ---------- */
-
+.welcome{
+  background-image: url();
+}
 
 /* Responsive Design for Welcome Section */
 
