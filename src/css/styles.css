@@ -428,11 +428,20 @@ main{
   flex: 1;
   background-color: var(--body-color);
   color: var(--text-color);
-  padding: 2rem;
+  padding: 5rem 10rem;
   display: flex;
+  gap: 1.5rem;
   flex-direction: column;
   justify-content: center;
   min-width: 300px;
+}
+
+.about .about__container h1{
+  font-size: var(--biggest-font-size);
+  font-weight: var(--font-bold);
+}
+.about .about__container p {
+  font-size: var(--normal-font-size);
 }
 
 /*=============== SCROLL UP ===============*/
@@ -479,6 +488,9 @@ main{
   /* ---------- ABOUT SECTION ---------- */
   .about {
     gap: 0;
+  }
+  .about .about__container {
+    padding: 5rem;
   }
 }
 
