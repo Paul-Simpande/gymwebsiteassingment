@@ -444,6 +444,59 @@ main{
   font-size: var(--normal-font-size);
 }
 
+/* ---------- CLASSES SECTION ---------- */
+.classes__section {
+  margin: 0 auto;
+  padding: 2rem 3rem;
+  text-align: center;
+  background-color: var(--title-color);
+}
+.section__title {
+  font-size: var(--biggest-font-size);
+  font-weight: var(--font-bold);
+  margin-bottom: 2rem;
+  color: var(--container-color);
+}
+.classes__container {
+  width: 100%;
+}
+.classes__container hr{
+  border-width: 1px;
+  border-color: var(--container-color);
+}
+.class__item {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+  padding: 1rem 0;
+  border-top: 3px solid var(--container-color);
+  margin-top: 15px;
+}
+.class__name {
+  width: 30%;
+  font-size: var(--big-font-size);
+  font-weight: var(--font-bold);
+  color: var(--container-color);
+  text-align: left;
+}
+.class__days{
+  display: none;
+  font-size: var(--h3-font-size);
+  color: var(--container-color);
+}
+.class__duration {
+  font-size: var(--h3-font-size);
+  color: var(--container-color);
+}
+.book_now_btn{
+  background-color: var(--container-color);
+  transition: background-color 2ms ease-in-out, transform 1..2ms ease-in-out;
+}
+.book_now_btn:hover{
+  background-color: var(--accent-color);
+}
+
 /*=============== SCROLL UP ===============*/
 .scrollup {
   position: fixed;
@@ -491,6 +544,18 @@ main{
   }
   .about .about__container {
     padding: 5rem;
+  }
+  /* ---------- CLASSES SECTION ---------- */
+  .class__item {
+    flex-direction: column;
+    row-gap: 1rem;
+    align-items: flex-start;
+  }
+  .class__days{
+    display: inline;
+  }
+  .book_now_btn{
+    width: 100%;
   }
 }
 
