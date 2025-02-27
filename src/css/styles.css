@@ -128,6 +128,24 @@ button{
   border-radius: 10px;
   color: var(--title-color);
 }
+.section__btn {
+  background-color: var(--first-color);
+  width: 100px;
+  text-align: center;
+  padding: 10px;
+  box-shadow: 2px 2px 20px hsl(236, 100%, 67%);
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+}
+.section__btn:hover{
+  background-color: var(--first-color-light);
+  transform: scale(1.2);
+  box-shadow: 12px 12px 20px hsl(236, 91%, 59%);
+}
+.section__btn a {
+  color: var(--title-color);
+  font-size: var(--small-font-size);
+}
 /* Reset */
 body, html {
   margin: 0;
@@ -359,6 +377,9 @@ section {
   color: var(--title-color);
 }
 /*=============== MAIN ===============*/
+main{
+  background-color: var(--title-color);
+}
 /* ---------- WELCOME SECTION ---------- */
 .welcome {
   display: flex;
@@ -367,7 +388,7 @@ section {
   background-position: center;
   padding: 5% 10%;
   height: 89vh;
-  margin-top: 5rem;
+  margin-top: 6rem;
   align-items: center;
 }
 .welcome .welcome_container {
@@ -382,23 +403,36 @@ section {
   font-size: var(--big-font-size);
   font-weight: var(--font-bold);
 }
-.welcome .welcome_container .join_btn {
-  background-color: var(--first-color);
-  width: 100px;
-  text-align: center;
-  padding: 10px;
-  box-shadow: 2px 2px 20px hsl(236, 100%, 67%);
-  cursor: pointer;
-  transition: background-color 0.2s ease-in-out, transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+
+/* ---------- ABOUT SECTION ---------- */
+.about {
+  display: flex;
+  padding: 0;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  gap: 1rem;
+  background: transparent;
 }
-.welcome .welcome_container .join_btn:hover{
-  background-color: var(--first-color-light);
-  transform: scale(1.2);
-  box-shadow: 12px 12px 20px hsl(236, 91%, 59%);
+.about .img__container {
+  flex: 1;
+  min-width: 300px;
 }
-.welcome .welcome_container .join_btn a {
-  color: var(--title-color);
-  font-size: var(--small-font-size);
+
+.about .img__container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.about .about__container {
+  flex: 1;
+  background-color: var(--body-color);
+  color: var(--text-color);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 300px;
 }
 
 /*=============== SCROLL UP ===============*/
@@ -428,7 +462,8 @@ section {
 /* For Small devices (phones) */
 @media (max-width: 600px) {
   .welcome {
-    padding: 50% 2%;
+    height: 50vh;
+    padding: 10% 2%;
     flex-direction: column;
     text-align: left;
   }
@@ -440,6 +475,10 @@ section {
   }
   .welcome .welcome_container h1 {
     font-size: var(--biggest-font-size);
+  }
+  /* ---------- ABOUT SECTION ---------- */
+  .about {
+    gap: 0;
   }
 }
 
