@@ -608,6 +608,63 @@ video {
 /*============= END ABOUT PAGE ============*/
 /*=========================================*/
 
+/*=========================================*/
+/*============= CLASSES PAGE ==============*/
+/*=========================================*/
+.classes_page_section {
+  margin: 5rem auto 0;
+  padding: 2rem 3rem;
+  text-align: center;
+  background-color: var(--container-color);
+}
+.classes_page_section .section__title {
+  font-size: var(--biggest-font-size);
+  font-weight: var(--font-bold);
+  margin-bottom: 2rem;
+  color: var(--text-color);
+}
+.classes_page_section .classes__container hr{
+  border-width: 0.1rem;
+  border-color: var(--text-color);
+}
+.classes_page_section .classes__container .class__item {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+  padding: 3rem 0;
+  border-top: 0.2rem solid var(--text-color);
+  margin-top: 15px;
+}
+.classes_page_section .classes__container .class__item .class__name {
+  width: 30%;
+  font-size: var(--big-font-size);
+  font-weight: var(--font-bold);
+  color: var(--text-color);
+  text-align: left;
+}
+.classes_page_section .classes__container .class__item .class__days{
+  display: inline;
+  text-wrap: wrap;
+  width: 150px;
+  font-size: var(--h3-font-size);
+  color: var(--text-color);
+}
+.classes_page_section .classes__container .class__item .class__duration {
+  font-size: var(--h3-font-size);
+  color: var(--text-color);
+}
+.classes_page_section .classes__container .class__item .book_now_btn{
+  background-color: var(--accent-color);
+  transition: background-color 2ms ease-in-out, transform 1..2ms ease-in-out;
+}
+.classes_page_section .classes__container .class__item .book_now_btn:hover{
+  background-color: var(--accent-color-light);
+}
+/*=========================================*/
+/*========= END OF CLASSES PAGE ===========*/
+/*=========================================*/
+
 /*=============== FOOTER ===============*/
 .footer {
   background: var(--gradient-background);
@@ -669,12 +726,6 @@ video {
   resize: none;
   height: 5rem; 
   padding: 1rem;
-  transition: height 0.5s ease-in-out, padding 0.5s ease-in-out; 
-}
-
-.footer__form textarea:focus {
-  height: 10rem;
-  padding: 0.5rem;
 }
 .footer__form input[type="text"]::placeholder,
 .footer__form input[type="email"]::placeholder,
@@ -879,7 +930,6 @@ video {
   /*=========================================*/
   /*============== ABOUT PAGE ===============*/
   /*=========================================*/
-  /* Allow containers to expand naturally */
   .about__container1,
   .about__page {
     height: auto;
@@ -889,23 +939,46 @@ video {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 1rem;  /* Adds space between elements */
+    gap: 1rem;  
     padding: 1rem;
   }
   
   .about__page .about__page_info .about__content {
-    width: 100%;  /* Use full width */
+    width: 100%;  
     padding: 1rem;
   }
   
   .about__page .about__page_info img {
-    width: 80%;       /* Responsive image size */
-    max-width: 300px; /* Optional max-width */
-    height: auto;     /* Maintain aspect ratio */
+    width: 80%;       
+    max-width: 300px; 
+    height: auto;     
     padding: 1rem 0;
   }
   /*=========================================*/
   /*============= END ABOUT PAGE ============*/
+  /*=========================================*/
+
+  /*=========================================*/
+  /*============= CLASSES PAGE ==============*/
+  /*=========================================*/
+  .classes_page_section .classes__container .class__item {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+    padding: 3rem 0;
+    border-top: 0.2rem solid var(--text-color);
+    margin-top: 0.1rem;
+  }
+  .classes_page_section .classes__container .class__item .class__name {
+    width: 100%;
+    font-size: var(--big-font-size);
+    font-weight: var(--font-bold);
+    color: var(--text-color);
+    text-align: center;
+  }
+  /*=========================================*/
+  /*========= END OF CLASSES PAGE ===========*/
   /*=========================================*/
 
   /*=============== FOOTER ===============*/
@@ -990,6 +1063,36 @@ video {
   /*=========================================*/
   /*=============== HOME PAGE ===============*/
   /*=========================================*/
+
+  /*=============== FOOTER ===============*/
+  .footer{
+    height: 78vh;
+  }
+  .footer__container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0.1rem 1rem;
+    row-gap: 5rem;
+  }
+
+  .footer__left,
+  .footer__right {
+    width: 50%;
+    margin-top: 10px;
+    height: 50%;
+    align-items: center;
+  }
+
+  .form-row {
+    flex-direction: column;
+  }
+
+  .footer__form input,
+  .footer__form textarea {
+    width: 100%;
+  }
 }
 
 /* For Large devices (desktops) */
@@ -999,6 +1102,15 @@ video {
   /*=========================================*/
   .welcome {
     padding: 5% 15%;
+  }
+
+  .footer__form textarea {
+    transition: height 0.5s ease-in-out, padding 0.5s ease-in-out; 
+  }
+  
+  .footer__form textarea:focus {
+    height: 10rem;
+    padding: 0.5rem;
   }
   /*=========================================*/
   /*============= END HOME PAGE =============*/
