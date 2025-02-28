@@ -338,8 +338,6 @@ body, html {
     gap: 2rem;
   }
 }
-
-/* Active link */
 .active-link{
   color: var(--first-color-light);
 }
@@ -347,7 +345,6 @@ body, html {
   width: 30%;
 }
 
-/* Add blur header */
 .blur-header::after {
   content: '';
   position: absolute;
@@ -360,16 +357,9 @@ body, html {
   left: 0;
   z-index: -1;
 }
-
-/* Active link */
-.active-link {
-  color: var(--first-color-light);
-}
-
-.active-link::after {
-  width: 30%;
-}
-
+/*=========================================*/
+/*=============== HOME PAGE ===============*/
+/*=========================================*/
 /*=============== SECTION ===============*/
 section {
   padding: 80px 20px;
@@ -415,7 +405,8 @@ main{
 }
 .about .img__container {
   flex: 1;
-  min-width: 300px;
+  min-width: 50%;
+  height: 100%;
 }
 
 .about .img__container img {
@@ -544,6 +535,78 @@ video {
   height: auto;
   object-fit: cover; 
 }
+/*=========================================*/
+/*============ END HOME PAGE ==============*/
+/*=========================================*/
+
+/*=========================================*/
+/*============== ABOUT PAGE ===============*/
+/*=========================================*/
+.about__container1{
+  background-color: var(--title-color);
+  height: 100vh;
+}
+.about__container1 .business{
+  padding-top: 2rem;
+  margin-top: 5rem;
+  height: 100%;
+}
+.about__container1 .business .about__container{
+  padding: 10rem;
+  gap: 0;
+  background-color: var(--first-color-alt);
+}
+.about__container1 .business div h1{
+  font-size: 4rem;
+  font-weight: var(--font-semi-bold);
+  margin: 0;
+  padding: 0;
+}
+.about__container1 .business div .p1{
+  font-size: 2rem;
+  margin-bottom: 3rem;
+  padding: 0;
+}
+.about__page{
+  height: 100vh;
+  background-color: var(--text-color);
+}
+.about__page .about__page_info{
+  height: 100%;
+  display: flex;
+  padding: 0 auto;
+  justify-content: space-around;
+}
+.about__page .about__page_info .about__content{
+  height: 100%;
+  width: 35%;
+  padding: 0.2rem;
+  color: var(--first-color-alt);
+}
+.about__page .about__page_info .about__content h3{
+  color: var(--first-color-alt);
+  font-size: var(--big-font-size);
+  font-weight: var(--font-bold);
+  margin-bottom: 1rem;
+}
+.about__page .about__page_info .about__content .job__title{
+  font-family: 'Times New Roman', Times, serif;
+  margin-bottom: 3rem;
+  color: var(--first-color-alt);
+}
+.about__page .about__page_info .about__content p{
+  margin-bottom: 3rem;
+  font-weight: 0;
+  color: rgb(0,0,0);
+  font-size: var(--normal-font-size);
+}
+.about__page .about__page_info img{
+  height: 100%;
+  padding: 3rem;
+}
+/*=========================================*/
+/*============= END ABOUT PAGE ============*/
+/*=========================================*/
 
 /*=============== FOOTER ===============*/
 .footer {
@@ -751,6 +814,9 @@ video {
 /*=============== BREAKPOINTS ===============*/
 /* For Small devices (phones) */
 @media (max-width: 768px) {
+  /*=========================================*/
+  /*=============== HOME PAGE ===============*/
+  /*=========================================*/
   .welcome {
     height: 50vh;
     padding: 10% 2%;
@@ -806,6 +872,42 @@ video {
     padding: 3rem;
     padding-top: 0;
   }
+  /*=========================================*/
+  /*=========== END OF HOME PAGE ============*/
+  /*=========================================*/
+
+  /*=========================================*/
+  /*============== ABOUT PAGE ===============*/
+  /*=========================================*/
+  /* Allow containers to expand naturally */
+  .about__container1,
+  .about__page {
+    height: auto;
+  }
+  
+  .about__page .about__page_info {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;  /* Adds space between elements */
+    padding: 1rem;
+  }
+  
+  .about__page .about__page_info .about__content {
+    width: 100%;  /* Use full width */
+    padding: 1rem;
+  }
+  
+  .about__page .about__page_info img {
+    width: 80%;       /* Responsive image size */
+    max-width: 300px; /* Optional max-width */
+    height: auto;     /* Maintain aspect ratio */
+    padding: 1rem 0;
+  }
+  /*=========================================*/
+  /*============= END ABOUT PAGE ============*/
+  /*=========================================*/
+
   /*=============== FOOTER ===============*/
   .footer__container {
     flex-direction: column;
@@ -849,6 +951,9 @@ video {
 
 /* For Medium devices (tablets, small laptops) */
 @media (min-width: 769px) and (max-width: 1200px) {
+  /*=========================================*/
+  /*=============== HOME PAGE ===============*/
+  /*=========================================*/
   .welcome {
     padding: 5% 8%;
   }
@@ -882,12 +987,20 @@ video {
     padding: 3rem;
     padding-top: 0;
   }
-  
+  /*=========================================*/
+  /*=============== HOME PAGE ===============*/
+  /*=========================================*/
 }
 
 /* For Large devices (desktops) */
 @media (min-width: 1201px) {
+  /*=========================================*/
+  /*============= END HOME PAGE =============*/
+  /*=========================================*/
   .welcome {
     padding: 5% 15%;
   }
+  /*=========================================*/
+  /*============= END HOME PAGE =============*/
+  /*=========================================*/
 }
