@@ -607,13 +607,180 @@ video {
 /*=========================================*/
 /*============= END ABOUT PAGE ============*/
 /*=========================================*/
+/*=========================================*/
+/*============= CLASSES PAGE ==============*/
+/*=========================================*/
+.classes_page_section {
+  margin: 5rem auto 0;
+  padding: 2rem 3rem;
+  text-align: center;
+  background-color: var(--container-color);
+}
+.classes_page_section .section__title {
+  font-size: var(--biggest-font-size);
+  font-weight: var(--font-bold);
+  margin-bottom: 2rem;
+  color: var(--text-color);
+}
+.classes_page_section .classes__container hr{
+  border-width: 0.1rem;
+  border-color: var(--text-color);
+}
+.classes_page_section .classes__container .class__item {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+  padding: 3rem 0;
+  border-top: 0.2rem solid var(--text-color);
+  margin-top: 15px;
+}
+.classes_page_section .classes__container .class__item .class__name {
+  width: 30%;
+  font-size: var(--big-font-size);
+  font-weight: var(--font-bold);
+  color: var(--text-color);
+  text-align: left;
+}
+.classes_page_section .classes__container .class__item .class__days{
+  display: inline;
+  text-wrap: wrap;
+  width: 150px;
+  font-size: var(--h3-font-size);
+  color: var(--text-color);
+}
+.classes_page_section .classes__container .class__item .class__duration {
+  font-size: var(--h3-font-size);
+  color: var(--text-color);
+}
+.classes_page_section .classes__container .class__item .book_now_btn{
+  background-color: var(--accent-color);
+  transition: background-color 2ms ease-in-out, transform 1..2ms ease-in-out;
+}
+.classes_page_section .classes__container .class__item .book_now_btn:hover{
+  background-color: var(--accent-color-light);
+}
+/*=========================================*/
+/*========= END OF CLASSES PAGE ===========*/
+/*=========================================*/
+/*=========================================*/
+/*=============== PLANS PAGE ==============*/
+/*=========================================*/
+.plans {
+  background-color: var(--title-color);
+  padding: 4rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5rem;
+}
+
+.plans h1 {
+  color: var(--first-color-alt);
+  text-align: center;
+  margin-bottom: 3rem;
+  font-weight: var(--font-bold);
+}
+
+.price__container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  width: 90%;
+  max-width: 1200px;
+  padding: 0 1.5rem;
+}
+
+.price__card {
+  background: transparent;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.card_2 .top__part{
+  background-color: var(--container-color);
+}
+.card_2 .top__part .plan__select_btn a{
+  border: 2px solid var(--accent-color);
+  transition: all 0.3s ease;
+}
+
+.card_2 .top__part .plan__select_btn a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  background-color: var(--accent-color);
+}
+
+.top__part {
+  background-color: var(--accent-color);
+  padding: 2rem;
+  text-align: center;
+  position: relative;
+  height: 400px;
+}
+
+.best-value-badge {
+  position: absolute;
+  top: 3px;
+  right: -32px;
+  background: var(--first-color-alt);
+  color: var(--title-color);
+  padding: 0.5rem 2rem;
+  transform: rotate(45deg);
+  font-size: 0.875rem;
+  width: 120px;
+  text-align: center;
+}
+
+.amount {
+  font-size: var(--biggest-font-size);
+  font-weight: var(--font-semi-bold);
+  margin: 1rem 0;
+}
+
+.bottom_part {
+  padding: 2rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.bottom_part p {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgb(0,0,0);
+}
+
+.plan__select_btn a {
+  display: inline-block;
+  background: transparent;
+  border: 2px solid var(--container-color);
+  color: var(--title-color);
+  padding: 0.8rem 2rem;
+  border-radius: 10px;
+  margin-top: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.plan__select_btn a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  background-color: var(--container-color);
+}
+
+/*=========================================*/
+/*============= END PLANS PAGE ============*/
+/*=========================================*/
 
 /*=============== FOOTER ===============*/
 .footer {
   background: var(--gradient-background);
   color: var(--title-color);
   font-family: Arial, sans-serif;
-  height: 100vh;
 }
 .footer__container {
   display: flex;
@@ -712,7 +879,7 @@ video {
   font-style: normal;
   font-size: var(--normal-font-size);
   margin: 0;
-  width: 50%;
+  width: 70%;
 }
 .footer__right address p{
   margin-bottom: 0.2rem;
@@ -837,7 +1004,7 @@ video {
     gap: 0;
   }
   .about .about__container {
-    padding: 5rem;
+    padding: 1rem;
   }
   /* ---------- CLASSES SECTION ---------- */
   .class__item {
@@ -853,10 +1020,10 @@ video {
   }
   /* ---------- BENEFITS SECTION ---------- */
   .benefits__col {
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
   .benefits__col_2 {
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
   .benefits__col .col_1,
   .benefits__col .col_2 {
@@ -879,33 +1046,77 @@ video {
   /*=========================================*/
   /*============== ABOUT PAGE ===============*/
   /*=========================================*/
-  /* Allow containers to expand naturally */
   .about__container1,
   .about__page {
     height: auto;
   }
-  
+  .about__container1{
+    height: auto;
+  }
+  .about__container1 .business .about__container{
+    padding: 1rem;
+  }
+
   .about__page .about__page_info {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 1rem;  /* Adds space between elements */
+    gap: 1rem;  
     padding: 1rem;
   }
   
   .about__page .about__page_info .about__content {
-    width: 100%;  /* Use full width */
+    width: 100%;  
     padding: 1rem;
   }
   
   .about__page .about__page_info img {
-    width: 80%;       /* Responsive image size */
-    max-width: 300px; /* Optional max-width */
-    height: auto;     /* Maintain aspect ratio */
+    width: 80%;       
+    max-width: 300px; 
+    height: auto;     
     padding: 1rem 0;
   }
   /*=========================================*/
   /*============= END ABOUT PAGE ============*/
+  /*=========================================*/
+
+  /*=========================================*/
+  /*============= CLASSES PAGE ==============*/
+  /*=========================================*/
+  .classes_page_section .classes__container .class__item {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+    padding: 3rem 0;
+    border-top: 0.2rem solid var(--text-color);
+    margin-top: 0.1rem;
+  }
+  .classes_page_section .classes__container .class__item .class__name {
+    width: 100%;
+    font-size: var(--big-font-size);
+    font-weight: var(--font-bold);
+    color: var(--text-color);
+    text-align: center;
+  }
+  /*=========================================*/
+  /*========= END OF CLASSES PAGE ===========*/
+  /*=========================================*/
+
+  /*=========================================*/
+  /*=============== PLANS PAGE ==============*/
+  /*=========================================*/
+  .price__container {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  .best-value-badge {
+      right: -35px;
+      font-size: 0.75rem;
+  }
+  /*=========================================*/
+  /*============= END PLANS PAGE ============*/
   /*=========================================*/
 
   /*=============== FOOTER ===============*/
@@ -989,6 +1200,43 @@ video {
   }
   /*=========================================*/
   /*=============== HOME PAGE ===============*/
+  /*=========================================*/
+
+  /*=========================================*/
+  /*============== ABOUT PAGE ===============*/
+  /*=========================================*/
+  .about__container1,
+  .about__page {
+    height: auto;
+  }
+  .about__container1{
+    height: auto;
+  }
+  .about__container1 .business .about__container{
+    padding: 1rem;
+  }
+
+  .about__page .about__page_info {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;  
+    padding: 1rem;
+  }
+  
+  .about__page .about__page_info .about__content {
+    width: 100%;  
+    padding: 2rem 10rem;
+  }
+  
+  .about__page .about__page_info img {
+    width: 80%;       
+    max-width: 300px; 
+    height: auto;     
+    padding: 1rem 0;
+  }
+  /*=========================================*/
+  /*============= END ABOUT PAGE ============*/
   /*=========================================*/
 }
 
