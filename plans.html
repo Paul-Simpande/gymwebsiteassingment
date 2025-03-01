@@ -1,13 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Paul Moses Miyoba Simpande Jr">
-    <link rel="stylesheet" href="src/css/styles.css">
-    <title>Plans</title>
-</head>
-<body>
-    
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Paul Moses Miyoba Simpande Jr">
+        <link rel="stylesheet" href="src/css/styles.css">
+        <!--=============== UNICONS ===============-->
+        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+
+        <!--=============== REMIXICONS ===============-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css">
+        <title>Classes</title>
+        <title>Plans</title>
+    </head>
+    <body>
+        <!--======================================================================-->
+        <!--=============================== HEADEER ==============================-->
+        <!--======================================================================-->
+        <header class="header" id="header">
+            <nav class="nav container">
+            <img
+                src="src/images/logo/Caesars_Palace_gym_logo.png"
+                alt="Logo"
+                class="nav__logo"
+            />
+            <div class="nav__toggle" id="nav-toggle">
+                <i class="ri-menu-line"></i>
+            </div>
+            <div class="nav__menu_container" id="nav-menu">
+                <div class="nav__close" id="nav-close">
+                <i class="ri-close-circle-fill"></i>
+                </div>
+                <div class="nav__menu">
+                <ul class="nav__list">
+                    <li><a href="index.html" class="nav__link">Home</a></li>
+                    <li><a href="about.html" class="nav__link">About</a></li>
+                    <li><a href="plans.html" class="nav__link">Plans</a></li>
+                    <li><a href="classes.html" class="nav__link">Classes</a></li>
+                    <li><a href="#" class="nav__link">Shop</a></li>
+                    <li><a href="#" class="nav__link">Register</a></li>
+                </ul>
+                </div>
+                <div class="nav__search">
+                <div class="search_box">
+                    <input type="search" placeholder="Search" />
+                    <a href="#">
+                    <i class="ri-search-eye-line scope"></i>
+                    </a>
+                </div>
+                <div class="membership_bar">
+                    <i class="ri-shopping-bag-3-fill"></i>
+                    <button>Membership</button>
+                    <i class="ri-notification-2-fill"></i>
+                </div>
+                </div>
+        
+            </div>
+            </nav>
+        </header>      
+        <!--======================================================================-->
+        <!--=============================== HEADEER ==============================-->
+        <!--======================================================================-->
+        
+        <!--======================================================================-->
+        <!--================================ PLANS ===============================-->
+        <!--======================================================================-->
+        <section class="section plans">
+            <h1>Choose your pricing plan</h1>
+            <div class="price__container">
+                <!-- Silver Membership -->
+                <article class="price__card card_1">
+                    <div class="top__part">
+                        <p class="type">Silver Membership</p>
+                        <p class="amount"><span class="cur">K</span>25</p>
+                        <p class="due">Every month</p>
+                        <p>Short-term trial for beginners</p>
+                        <p>Valid for 2 months</p>
+                        <div class="plan__select_btn">
+                            <a href="#">Select</a>
+                        </div>
+                    </div>
+                    <div class="bottom_part">
+                        <p>Unlimited Classes</p>
+                        <p>Fitness assessment</p>
+                        <p>Locker room with showers</p>
+                        <p>Free parking</p>
+                    </div>
+                </article>
+        
+                <!-- Gold Membership (Best Value) -->
+                <article class="price__card card_2">
+                    <div class="top__part">
+                        <div class="best-value-badge">Best Value</div>
+                        <p class="type">Gold Membership</p>
+                        <p class="amount"><span class="cur">K</span>30</p>
+                        <p class="due">Every month</p>
+                        <p>Ideal for advanced trainees</p>
+                        <p>Valid for 12 months</p>
+                        <div class="plan__select_btn">
+                            <a href="#">Select</a>
+                        </div>
+                    </div>
+                    <div class="bottom_part">
+                        <p>Unlimited Classes</p>
+                        <p>Fitness assessment</p>
+                        <p>Locker room with showers</p>
+                        <p>Free parking</p>
+                    </div>
+                </article>
+        
+                <!-- Platinum Membership -->
+                <article class="price__card card_3">
+                    <div class="top__part">
+                        <p class="type">Platinum Membership</p>
+                        <p class="amount"><span class="cur">K</span>40</p>
+                        <p class="due">Every month</p>
+                        <p>Perfect for committed trainee</p>
+                        <br>
+                        <div class="plan__select_btn">
+                            <a href="#">Select</a>
+                        </div>
+                    </div>
+                    <div class="bottom_part">
+                        <p>Unlimited Classes</p>
+                        <p>Fitness assessment</p>
+                        <p>Locker room with showers</p>
+                        <p>Free parking</p>
+                        <p>Guest Privileges</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+        <!--======================================================================-->
+        <!--================================ PLANS ===============================-->
+        <!--======================================================================-->
+
+        <!--======================================================================-->
+        <!--================================ FOOTER ==============================-->
+        <!--======================================================================-->
+        <footer class="footer">
+            <div class="footer__container">
+            <div class="footer__left">
+                <h2>Let's Get Moving</h2>
+                <p>Sign Up For Updates</p>
+                <form class="footer__form">
+                <div class="form-row">
+                    <input type="text" placeholder="First name *" required>
+                    <input type="text" placeholder="Last name *" required>
+                </div>
+                <div class="form-row">
+                    <input type="email" placeholder="Email *" required>
+                    <input type="tel" placeholder="Phone" required>
+                </div>
+                <textarea placeholder="Type your message here..."></textarea>
+                <button type="submit">Submit</button>
+                </form>
+            </div>
+            <div class="footer__right">
+                <address>
+                <p>Nationalist Road 2046</p>
+                <p>Kamwala South, Lusaka</p>
+                <p>Email: simpandepauul03@gmail.com</p>
+                <hr>
+                <p>Tel: +260-76-833-2823 | Fax: +260-76-833-2823</p>
+                <button class="footer__cta">Book A Trial Class Now</button>
+                </address>
+                <div class="social_links">
+                <ul class="footer__links">
+                    <li><a href="index.html" class="nav__link">Home</a></li>
+                    <li><a href="about.html" class="nav__link">About</a></li>
+                    <li><a href="plans.html" class="nav__link">Plans</a></li>
+                    <li><a href="classes.html" class="nav__link">Classes</a></li>
+                    <li><a href="#" class="nav__link">Shop</a></li>
+                    <li><a href="#" class="nav__link">Register</a></li>
+                </ul>
+                <div class="footer__socials">
+                    <a href="#" aria-label="Facebook">
+                    <i class="ri-youtube-fill"></i>
+                    </a>
+                    <a href="#" aria-label="Facebook">
+                    <i class="ri-facebook-fill"></i>
+                    </a>
+                    <a href="#" aria-label="Instagram">
+                    <i class="ri-instagram-fill"></i>
+                    </a>
+                </div>
+                </div>
+            </div>
+            </div>
+            <div class="footer__bottom">
+            <hr>
+            <p>&#169; All Rights Reserved By Paul M.M Simpande Jr BIT23118438</p>
+            </div>
+        </footer>    
+        <!--======================================================================-->
+        <!--================================ FOOTER ==============================-->
+        <!--======================================================================-->
+        
+        <!--=============== MAIN JS ===============-->
+        <script src="src/js/script.js"></script>
+    </body>
 </html>
