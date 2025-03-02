@@ -54,6 +54,25 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+/*=============== THE FILTER BUTTON ===============*/
+document.addEventListener('DOMContentLoaded', () => {
+  const filterTrigger = document.querySelector('.mobile-filter-trigger');
+  const filters = document.querySelector('.filters');
+  const closeFilters = document.createElement('button');
+  
+  closeFilters.className = 'close-filters';
+  closeFilters.innerHTML = '×';
+  filters.prepend(closeFilters);
+
+  filterTrigger.addEventListener('click', () => {
+    filters.classList.add('active');
+  });
+
+  closeFilters.addEventListener('click', () => {
+    filters.classList.remove('active');
+  });
+});
+
 /*=============== ADD BLUR HEADER ===============*/
 const blurHeader = () =>{
     const header = document.getElementById('header')
