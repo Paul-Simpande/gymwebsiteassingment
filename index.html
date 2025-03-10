@@ -48,9 +48,22 @@
                 </a>
               </div>
               <div class="membership_bar">
-                <i class="ri-shopping-bag-3-fill"></i>
-                <button>Membership</button>
-                <i class="ri-notification-2-fill"></i>
+                <i  id="cart-box" aria-controls="cart-icon" class="ri-shopping-bag-3-fill cartion"></i>
+                <!--=========================================-->
+                <!-- CART BOX-->
+                 <div id="cart-icon" class="cart-icon" data-visible="false">
+                  <div class="shopping">
+                    <p>Shopping Basket</p>
+                    <i class="ri-close-circle-fill cartion"></i>
+                  </div>
+                  <div class="cart">
+                    <i class="ri-shopping-bag-4-fill"></i>
+                    <p>Cart Is Empty</p>
+                  </div>
+                </div>
+                <!--=========================================-->
+                <button>Login</button>
+                <i class="ri-notification-2-fill cartion"></i>
               </div>
             </div>
       
@@ -77,6 +90,46 @@
         </div>
        </section>
       <!-- WELCOME SECTION -->
+      <!-- PRODUCT SECTION -->
+      <section class="products-section section">
+        <h2 class="section__title">Featured Products</h2>
+        <div class="products-container">
+            <!-- Product Card 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="src/images/products/protein-shake.jpg" alt="Whey Protein">
+                    <span class="best-seller">Best Seller</span>
+                </div>
+                <h3>Premium Whey Protein</h3>
+                <p class="price">ZK120.00</p>
+                <a href="shop.html" class="cta-button">View Product</a>
+            </div>
+    
+            <!-- Product Card 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="src/images/products/yoga-mat.jpg" alt="Yoga Mat">
+                </div>
+                <h3>Professional Yoga Mat</h3>
+                <p class="price">ZK80.00</p>
+                <a href="shop.html" class="cta-button">View Product</a>
+            </div>
+    
+            <!-- Product Card 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="src/images/products/dumbbells.jpg" alt="Dumbbells">
+                </div>
+                <h3>Adjustable Dumbbells</h3>
+                <p class="price">ZK200.00</p>
+                <a href="shop.html" class="cta-button">View Product</a>
+            </div>
+        </div>
+        <div class="view-all-btn section__btn">
+            <a href="shop.html">View All Products</a>
+        </div>
+      </section>
+      <!-- pRODUCT SECTION -->
       <!-- ABOUT SECTION -->
       <section class="about section">
         <div class="img__container">

@@ -22,6 +22,20 @@ navLinks.forEach(link => {
   });
 });
 
+/* cart appearance and disappearance */
+document.addEventListener('DOMContentLoaded', function() {
+  const cartBox = document.getElementById('cart-box');
+  const cartIcon = document.getElementById('cart-icon');
+  const closeCart = document.querySelector('.shopping .ri-close-circle-fill');
+
+  cartBox.addEventListener('click', () => {
+      cartIcon.setAttribute('data-visible', 'true');
+  });
+
+  closeCart.addEventListener('click', () => {
+      cartIcon.setAttribute('data-visible', 'false');
+  });
+});
 
 /*=============== REMOVE MENU MOBILE ===============*/
 document.addEventListener("DOMContentLoaded", function () {

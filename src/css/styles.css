@@ -162,7 +162,7 @@ body, html {
   z-index: var(--z-fixed);
 }
 .container {
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
   padding: 0 1rem;
 }
@@ -248,19 +248,63 @@ body, html {
   color: var(--accent-color);
   font-size: 18px;
 }
+/* ========= Cart Box ========= */
+.cart-icon {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  height: 80vh;
+  width: 400px;
+  border-radius: 10px;
+  background-color: rgba(216, 216, 216, 0.9);
+  transition: right 300ms ease-in-out;
+  color: #000000a9;
+  z-index: 9999;
+  padding: 20px;
+  box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+}
+
+.cart-icon[data-visible="true"] {
+  right: 0;
+}
+.shopping{
+  display: flex;
+  padding: 2rem;
+  justify-content: space-between;
+  align-items: center;
+}
+.shopping > p{
+  font-size: var(--big-font-size);
+}
+.shopping > i{
+  font-size: 1.5rem;
+}
+.cart{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  --flex-gap: 0.5rem;
+  align-items: center;
+}
+.cart i{
+  font-size: 5rem;
+  transition: none;
+}
+
 .membership_bar {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
-.membership_bar i {
+.membership_bar .cartion {
   font-size: 2rem;
   color: var(--accent-color-light);
   cursor: pointer;
   border: none;
   transition: transform 0.5s;
 }
-.membership_bar i:hover {
+.membership_bar .cartion:hover {
   transform: rotate(360deg) scale(1.5);
   color: var(--accent-color);
 }
@@ -393,7 +437,80 @@ main{
   font-size: var(--big-font-size);
   font-weight: var(--font-bold);
 }
+/* --------- PRODUCT SECTION --------- */
+.products-section {
+  padding: 4rem 0;
+  text-align: center;
+}
 
+.products-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.product-card {
+  background: var(--container-color);
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.product-image {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.product-image img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.best-seller {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: var(--first-color);
+  color: #fff;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: var(--small-font-size);
+}
+
+.product-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.price {
+  color: var(--first-color);
+  font-weight: var(--font-semi-bold);
+  margin-bottom: 1rem;
+}
+
+.cta-button {
+  display: inline-block;
+  background: var(--first-color);
+  color: #fff;
+  padding: 0.7rem 1.5rem;
+  border-radius: 25px;
+  transition: background 0.3s ease;
+}
+
+.cta-button:hover {
+  background: var(--first-color-alt);
+}
+
+.view-all-btn {
+  margin-top: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+}
 /* ---------- ABOUT SECTION ---------- */
 .about {
   display: flex;
@@ -403,6 +520,7 @@ main{
   gap: 1rem;
   background: transparent;
 }
+
 .about .img__container {
   flex: 1;
   min-width: 50%;
@@ -415,6 +533,7 @@ main{
   object-fit: cover;
   display: block;
 }
+
 .about .about__container {
   flex: 1;
   background-color: var(--body-color);
@@ -1179,6 +1298,10 @@ video {
   .welcome .welcome_container h1 {
     font-size: var(--biggest-font-size);
   }
+  /* --------- PRODUCT SECTION --------- */
+  .products-container {
+    grid-template-columns: 1fr;
+  }
   /* ---------- ABOUT SECTION ---------- */
   .about {
     gap: 0;
@@ -1218,6 +1341,23 @@ video {
   .benefits__col div p{
     padding: 3rem;
     padding-top: 0;
+  }
+  /* ------ Cart ------- */
+  .cart-icon {
+    width: 90%;
+    padding: 15px;
+  }
+  
+  .shopping > p {
+    font-size: 1.2rem;
+  }
+  
+  .cart i {
+    font-size: 3rem;
+  }
+  
+  .shopping > i {
+    font-size: 1.2rem;
   }
   /*=========================================*/
   /*=========== END OF HOME PAGE ============*/
@@ -1463,6 +1603,24 @@ video {
     padding: 3rem;
     padding-top: 0;
   }
+  /* ------ cart ------ */
+  .cart-icon {
+    width: 60%;
+    padding: 20px;
+  }
+  
+  .shopping > p {
+    font-size: 1.3rem;
+  }
+  
+  .cart i {
+    font-size: 4rem;
+  }
+  
+  .shopping > i {
+    font-size: 1.4rem;
+  }
+
   /*=========================================*/
   /*=============== HOME PAGE ===============*/
   /*=========================================*/
