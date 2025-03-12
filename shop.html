@@ -10,6 +10,9 @@
 
         <!--=============== REMIXICONS ===============-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css">
+    
+        <!--=============== BOXICONS ================-->
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
         <title>Shop</title>
     </head>
     <body>
@@ -18,48 +21,136 @@
         <!--======================================================================-->
         <header class="header" id="header">
             <nav class="nav container">
-            <img
+              <img
                 src="src/images/logo/Caesars_Palace_gym_logo.png"
                 alt="Logo"
                 class="nav__logo"
-            />
-            <div class="nav__toggle" id="nav-toggle">
+              />
+              <div class="nav__toggle" id="nav-toggle">
                 <i class="ri-menu-line"></i>
-            </div>
-            <div class="nav__menu_container" id="nav-menu">
+              </div>
+              <div class="nav__menu_container" id="nav-menu">
                 <div class="nav__close" id="nav-close">
-                <i class="ri-close-circle-fill"></i>
+                  <i class="ri-close-circle-fill"></i>
                 </div>
                 <div class="nav__menu">
-                <ul class="nav__list">
+                  <ul class="nav__list">
                     <li><a href="index.html" class="nav__link">Home</a></li>
-                    <li><a href="about.html" class="nav__link">About</a></li>
-                    <li><a href="plans.html" class="nav__link">Plans</a></li>
-                    <li><a href="classes.html" class="nav__link">Classes</a></li>
-                    <li><a href="shop.html" class="nav__link">Shop</a></li>
-                    <li><a href="#" class="nav__link">Register</a></li>
+                        <li><a href="about.html" class="nav__link">About</a></li>
+                        <li><a href="plans.html" class="nav__link">Plans</a></li>
+                        <li><a href="classes.html" class="nav__link">Classes</a></li>
+                        <li><a href="shop.html" class="nav__link">Shop</a></li>
+                        <li><a href="profile.html" class="nav__link">Profile</a></li>
                 </ul>
                 </div>
                 <div class="nav__search">
-                <div class="search_box">
+                  <div class="search_box">
                     <input type="search" placeholder="Search" />
                     <a href="#">
-                    <i class="ri-search-eye-line scope"></i>
+                      <i class="ri-search-eye-line scope"></i>
                     </a>
+                  </div>
+                  <div class="membership_bar">
+                    <i  id="cart-box" aria-controls="cart-icon" class="ri-shopping-bag-3-fill cartion"></i>
+                    <!--=========================================-->
+                    <!-- CART BOX-->
+                     <div id="cart-icon" class="cart-icon" data-visible="false">
+                      <div class="shopping">
+                        <p>Shopping Basket</p>
+                        <i class="ri-close-circle-fill cartion"></i>
+                      </div>
+                      <div class="cart">
+                        <i class="ri-shopping-bag-4-fill"></i>
+                        <p>Cart Is Empty</p>
+                      </div>
+                    </div>
+                    <!--=========================================-->
+                    <button id="loginTrigger">Login</button>
+                    <i class="ri-notification-2-fill cartion"></i>
+                  </div>
                 </div>
-                <div class="membership_bar">
-                    <i class="ri-shopping-bag-3-fill"></i>
-                    <button>Membership</button>
-                    <i class="ri-notification-2-fill"></i>
-                </div>
-                </div>
-        
-            </div>
+          
+              </div>
             </nav>
-        </header>      
+          </header>      
         <!--======================================================================-->
         <!--=============================== HEADEER ==============================-->
         <!--======================================================================-->
+        <!-- Login Popup -->
+        <div class="login-modal-overlay" id="loginOverlay">
+          <div class="login-modal-container">
+            <span class="login-close-btn">&times;</span>
+            <div class="container">
+                <div class="form-box login">
+                    <form action="">
+                        <h1>Login</h1>
+                        <div class="input-box">
+                            <input type="email" placeholder="Email" required>
+                            <i class='bx bxs-user' ></i>
+                        </div>
+                        <div class="input-box">
+                            <input type="password" placeholder="Password" required>
+                            <i class='bx bxs-lock-alt' ></i>
+                        </div>
+                        <div class="forgot-link">
+                            <a href="#">Forgot Password?</a>
+                        </div>
+                        <button type="submit" class="btn">Login</button>
+                    </form>
+                </div>
+                <div class="form-box register">
+                    <form action="">
+                        <h1>Registration</h1>
+                        <div class="input-box">
+                            <input type="text" placeholder="Full Name" required>
+                            <i class='bx bxs-user' ></i>
+                        </div>
+                        <div class="input-box">
+                            <input type="email" placeholder="Email" required>
+                            <i class='bx bxs-envelope'></i>
+                        </div>
+                        <div class="input-box">
+                            <input type="tel" placeholder="Phone Number" required>
+                            <i class='bx bxs-phone'></i>
+                        </div>
+                        <div class="input-box">
+                            <input type="date" placeholder="Date Of Birth" required>
+                            <i class='bx bxs-calendar'></i>
+                        </div>
+                        <div class="gender-box">
+                            <div class="gender-options">
+                                <label class="gender-option">
+                                    <input type="radio" name="gender" value="male" required>
+                                    <span>Male</span>
+                                </label>
+                                <label class="gender-option">
+                                    <input type="radio" name="gender" value="female" required>
+                                    <span>Female</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="input-box">
+                            <input type="password" placeholder="Password" required>
+                            <i class='bx bxs-lock-alt' ></i>
+                        </div>
+                        <button type="submit" class="btn">Register</button>
+                    </form>
+                </div>
+                <div class="toggle-box">
+                    <div class="toggle-panel toggle-left">
+                        <h1>Hello, Welcome!</h1>
+                        <p>Don't have an account?</p>
+                        <button class="btn register-btn">Register</button>
+                    </div>
+                    <div class="toggle-panel toggle-right">
+                        <h1>Welcome Back!</h1>
+                        <p>Already have an account?</p>
+                        <button class="btn login-btn">Login</button>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
         
         <!--======================================================================-->
         <!--=============================== PRODUCTS =============================-->

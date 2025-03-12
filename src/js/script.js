@@ -36,7 +36,39 @@ document.addEventListener('DOMContentLoaded', function() {
       cartIcon.setAttribute('data-visible', 'false');
   });
 });
+/*=============== LOGIN FUCTIONALITY ===============*/
+// Login Modal Functionality
+const loginOverlay = document.getElementById('loginOverlay');
+const loginBtn = document.querySelector('.membership_bar button');
+const closeBtn = document.querySelector('.login-close-btn');
 
+// Show modal
+loginBtn.addEventListener('click', () => {
+  loginOverlay.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+});
+
+// Close modal
+closeBtn.addEventListener('click', () => {
+  loginOverlay.style.display = 'none';
+  document.body.style.overflow = 'auto';
+});
+
+// Close when clicking outside
+loginOverlay.addEventListener('click', (e) => {
+  if(e.target === loginOverlay) {
+    loginOverlay.style.display = 'none';
+    document.body.style.overflow = 'auto';
+  }
+});
+
+// Keep existing login/register toggle functionality
+const container = document.querySelector('.login-modal-container .container');
+const registerBtn = document.querySelector('.register-btn');
+const loginToggleBtn = document.querySelector('.login-btn');
+
+registerBtn?.addEventListener('click', () => container.classList.add('active'));
+loginToggleBtn?.addEventListener('click', () => container.classList.remove('active'));
 /*=============== REMOVE MENU MOBILE ===============*/
 document.addEventListener("DOMContentLoaded", function () {
     const dropdownToggle = document.querySelector(".dropdown-toggle");
