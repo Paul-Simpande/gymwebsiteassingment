@@ -51,20 +51,104 @@
                     </a>
                   </div>
                   <div class="membership_bar">
-                    <i  id="cart-box" aria-controls="cart-icon" class="ri-shopping-bag-3-fill cartion"></i>
+                    <!-- Trigger Icon (remains the same) -->
+                    <i id="cart-box" aria-controls="cart-icon" class="ri-shopping-bag-3-fill cartion"></i>
+
                     <!--=========================================-->
-                    <!-- CART BOX-->
-                     <div id="cart-icon" class="cart-icon" data-visible="false">
-                      <div class="shopping">
-                        <p>Shopping Basket</p>
+                    <!-- CART BOX -->
+                    <div id="cart-icon" class="cart-icon" data-visible="false">
+                    <!-- Top Bar: Title + Close Button -->
+                    <div class="shopping">
+                        <p>Cart (4 items)</p>
                         <i class="ri-close-circle-fill cartion"></i>
-                      </div>
-                      <div class="cart">
-                        <i class="ri-shopping-bag-4-fill"></i>
-                        <p>Cart Is Empty</p>
-                      </div>
+                    </div>
+
+                    <!-- Cart Items Container -->
+                    <div class="cart-items">
+                        <!-- Single Cart Item -->
+                        <div class="cart-item">
+                        <img
+                            src="https://via.placeholder.com/60"
+                            alt="Product 1"
+                            class="cart-item-img"
+                        />
+                        <div class="cart-item-info">
+                            <p class="cart-item-name">I'm a product</p>
+                            <p class="cart-item-meta">Color: Black</p>
+                            <div class="cart-item-quantity">
+                            <button class="quantity-btn">-</button>
+                            <input type="number" value="1" min="1" />
+                            <button class="quantity-btn">+</button>
+                            </div>
+                        </div>
+                        <div class="cart-item-price">
+                            <p>ZK85.00</p>
+                            <button class="remove-item">
+                            <i class="ri-delete-bin-line"></i>
+                            </button>
+                        </div>
+                        </div>
+
+                        <!-- Repeat for other items as needed -->
+                        <div class="cart-item">
+                        <img
+                            src="https://via.placeholder.com/60"
+                            alt="Product 2"
+                            class="cart-item-img"
+                        />
+                        <div class="cart-item-info">
+                            <p class="cart-item-name">I'm a product</p>
+                            <p class="cart-item-meta">ZK20.00</p>
+                            <div class="cart-item-quantity">
+                            <button class="quantity-btn">-</button>
+                            <input type="number" value="2" min="1" />
+                            <button class="quantity-btn">+</button>
+                            </div>
+                        </div>
+                        <div class="cart-item-price">
+                            <p>ZK40.00</p>
+                            <button class="remove-item">
+                            <i class="ri-delete-bin-line"></i>
+                            </button>
+                        </div>
+                        </div>
+
+                        <div class="cart-item">
+                        <img
+                            src="https://via.placeholder.com/60"
+                            alt="Product 3"
+                            class="cart-item-img"
+                        />
+                        <div class="cart-item-info">
+                            <p class="cart-item-name">I'm a product</p>
+                            <p class="cart-item-meta">Size: Large</p>
+                            <div class="cart-item-quantity">
+                            <button class="quantity-btn">-</button>
+                            <input type="number" value="1" min="1" />
+                            <button class="quantity-btn">+</button>
+                            </div>
+                        </div>
+                        <div class="cart-item-price">
+                            <p>ZK25.00</p>
+                            <button class="remove-item">
+                            <i class="ri-delete-bin-line"></i>
+                            </button>
+                        </div>
+                        </div>
+                    </div>
+
+                    <!-- Cart Summary -->
+                    <div class="cart-summary">
+                        <p class="cart-subtotal">
+                        Subtotal <span>ZK150.00</span>
+                        </p>
+                        <p class="cart-taxes">Taxes and shipping are calculated at checkout.</p>
+                        <button class="cart-checkout">Checkout</button>
+                        <a href="#" class="cart-view">View Cart</a>
+                    </div>
                     </div>
                     <!--=========================================-->
+      
                     <button id="loginTrigger">Login</button>
                     <i class="ri-notification-2-fill cartion"></i>
                   </div>
@@ -151,7 +235,7 @@
             </div>
           </div>
         </div>
-        
+                
         <!--======================================================================-->
         <!--================================ PLANS ===============================-->
         <!--======================================================================-->
@@ -232,7 +316,7 @@
             <div class="footer__container">
             <div class="footer__left">
                 <h2>Let's Get Moving</h2>
-                <p>Sign Up For Updates</p>
+                <p>Send Inquries or complaints</p>
                 <form class="footer__form">
                 <div class="form-row">
                     <input type="text" placeholder="First name *" required>
@@ -262,7 +346,7 @@
                     <li><a href="plans.html" class="nav__link">Plans</a></li>
                     <li><a href="classes.html" class="nav__link">Classes</a></li>
                     <li><a href="shop.html" class="nav__link">Shop</a></li>
-                    <li><a href="#" class="nav__link">Register</a></li>
+                    <li><a href="profile.html" class="nav__link">Profile</a></li>
                 </ul>
                 <div class="footer__socials">
                     <a href="#" aria-label="Facebook">
@@ -286,7 +370,6 @@
         <!--======================================================================-->
         <!--================================ FOOTER ==============================-->
         <!--======================================================================-->
-        
         <!--=============== MAIN JS ===============-->
         <script src="src/js/script.js"></script>
     </body>

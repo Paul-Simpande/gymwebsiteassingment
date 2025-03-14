@@ -1,158 +1,515 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Paul Moses Miyoba Simpande Jr">
-    <link rel="stylesheet" href="src/css/styles.css">
-    <!--=============== UNICONS ===============-->
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Paul Moses Miyoba Simpande Jr" />
+  <link rel="stylesheet" href="src/css/styles.css" />
+  <!-- UNICONS -->
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css" />
+  <!-- REMIXICONS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css" />
+  <!-- BOXICONS -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <title>Profile</title>
+  
+  <!-- Friend Section Styles (Merge these with your main CSS or keep here if preferred) -->
+  <style>
+    :root {
+      --primary-color: #2a2a72;
+      --secondary-color: #009ffd;
+      --background: #f8f9fa;
+    }
 
-    <!--=============== REMIXICONS ===============-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css">
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+    }
 
-    <!--=============== BOXICONS ================-->
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <title>Profile</title>
+    body {
+      background-color: var(--background);
+      line-height: 1.6;
+    }
+
+    /* Profile Container */
+    .profile-container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 2rem;
+    }
+
+    /* Personal Info Section */
+    .personal-info {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: #ddd;
+      margin: 0 auto 1rem;
+      overflow: hidden;
+    }
+
+    /* Info Groups */
+    .info-group {
+      margin-bottom: 1.5rem;
+    }
+
+    dt.info-label {
+      font-weight: bold;
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+    }
+
+    dd.info-value {
+      margin-left: 0;
+      margin-bottom: 1rem;
+    }
+
+    /* Subscription Status */
+    .subscription-status {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+      margin-bottom: 2rem;
+    }
+
+    .status-badge {
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-weight: bold;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+
+    .active {
+      background: #c8e6c9;
+      color: #2e7d32;
+    }
+    dd{
+      color: rgba(42, 42, 42, 0.671);
+    }
+
+    .expired {
+      background: #ffcdd2;
+      color: #c62828;
+    }
+
+    /* Orders & Bookings */
+    .orders-section,
+    .bookings-section {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+      margin-bottom: 2rem;
+    }
+
+    .order-item,
+    .booking-item {
+      padding: 1rem;
+      border-bottom: 1px solid #eee;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+    }
+
+    .status-delivered {
+      color: #2e7d32;
+    }
+
+    .status-booked {
+      color: #1a237e;
+    }
+
+    /* Section Headers */
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+
+    h2 {
+      color: var(--primary-color);
+      margin-bottom: 1.5rem;
+    }
+
+    .section-title {
+      border-bottom: 2px solid var(--secondary-color);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Edit Button */
+    .edit-btn {
+      background: var(--secondary-color);
+      color: white;
+      padding: 0.5rem 1.5rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-left: auto;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .profile-container {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+      }
+      
+      .personal-info {
+        order: -1;
+        margin-bottom: 2rem;
+      }
+      
+      .info-group {
+        text-align: center;
+      }
+      
+      .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .edit-btn {
+        margin-top: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .order-item,
+      .booking-item {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      
+      .avatar {
+        width: 80px;
+        height: 80px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <!--======================================================================-->
-    <!--=============================== HEADEER ==============================-->
-    <!--======================================================================-->
-    <header class="header" id="header">
-        <nav class="nav container">
-          <img
-            src="src/images/logo/Caesars_Palace_gym_logo.png"
-            alt="Logo"
-            class="nav__logo"
-          />
-          <div class="nav__toggle" id="nav-toggle">
-            <i class="ri-menu-line"></i>
-          </div>
-          <div class="nav__menu_container" id="nav-menu">
-            <div class="nav__close" id="nav-close">
-              <i class="ri-close-circle-fill"></i>
-            </div>
-            <div class="nav__menu">
-              <ul class="nav__list">
-                <li><a href="index.html" class="nav__link">Home</a></li>
-                    <li><a href="about.html" class="nav__link">About</a></li>
-                    <li><a href="plans.html" class="nav__link">Plans</a></li>
-                    <li><a href="classes.html" class="nav__link">Classes</a></li>
-                    <li><a href="shop.html" class="nav__link">Shop</a></li>
-                    <li><a href="profile.html" class="nav__link">Profile</a></li>
-            </ul>
-            </div>
-            <div class="nav__search">
-              <div class="search_box">
-                <input type="search" placeholder="Search" />
-                <a href="#">
-                  <i class="ri-search-eye-line scope"></i>
-                </a>
-              </div>
-              <div class="membership_bar">
-                <i  id="cart-box" aria-controls="cart-icon" class="ri-shopping-bag-3-fill cartion"></i>
-                <!--=========================================-->
-                <!-- CART BOX-->
-                 <div id="cart-icon" class="cart-icon" data-visible="false">
-                  <div class="shopping">
-                    <p>Shopping Basket</p>
-                    <i class="ri-close-circle-fill cartion"></i>
-                  </div>
-                  <div class="cart">
-                    <i class="ri-shopping-bag-4-fill"></i>
-                    <p>Cart Is Empty</p>
-                  </div>
-                </div>
-                <!--=========================================-->
-                <button id="loginTrigger">Login</button>
-                <i class="ri-notification-2-fill cartion"></i>
-              </div>
-            </div>
-      
-          </div>
-        </nav>
-      </header>      
-    <!--======================================================================-->
-    <!--=============================== HEADEER ==============================-->
-    <!--======================================================================-->
-    <!-- Login Popup -->
-    <div class="login-modal-overlay" id="loginOverlay">
-      <div class="login-modal-container">
-        <span class="login-close-btn">&times;</span>
-        <div class="container">
-            <div class="form-box login">
-                <form action="">
-                    <h1>Login</h1>
-                    <div class="input-box">
-                        <input type="email" placeholder="Email" required>
-                        <i class='bx bxs-user' ></i>
-                    </div>
-                    <div class="input-box">
-                        <input type="password" placeholder="Password" required>
-                        <i class='bx bxs-lock-alt' ></i>
-                    </div>
-                    <div class="forgot-link">
-                        <a href="#">Forgot Password?</a>
-                    </div>
-                    <button type="submit" class="btn">Login</button>
-                </form>
-            </div>
-            <div class="form-box register">
-                <form action="">
-                    <h1>Registration</h1>
-                    <div class="input-box">
-                        <input type="text" placeholder="Full Name" required>
-                        <i class='bx bxs-user' ></i>
-                    </div>
-                    <div class="input-box">
-                        <input type="email" placeholder="Email" required>
-                        <i class='bx bxs-envelope'></i>
-                    </div>
-                    <div class="input-box">
-                        <input type="tel" placeholder="Phone Number" required>
-                        <i class='bx bxs-phone'></i>
-                    </div>
-                    <div class="input-box">
-                        <input type="date" placeholder="Date Of Birth" required>
-                        <i class='bx bxs-calendar'></i>
-                    </div>
-                    <div class="gender-box">
-                        <div class="gender-options">
-                            <label class="gender-option">
-                                <input type="radio" name="gender" value="male" required>
-                                <span>Male</span>
-                            </label>
-                            <label class="gender-option">
-                                <input type="radio" name="gender" value="female" required>
-                                <span>Female</span>
-                            </label>
-                        </div>
-                    </div>
-                    <div class="input-box">
-                        <input type="password" placeholder="Password" required>
-                        <i class='bx bxs-lock-alt' ></i>
-                    </div>
-                    <button type="submit" class="btn">Register</button>
-                </form>
-            </div>
-            <div class="toggle-box">
-                <div class="toggle-panel toggle-left">
-                    <h1>Hello, Welcome!</h1>
-                    <p>Don't have an account?</p>
-                    <button class="btn register-btn">Register</button>
-                </div>
-                <div class="toggle-panel toggle-right">
-                    <h1>Welcome Back!</h1>
-                    <p>Already have an account?</p>
-                    <button class="btn login-btn">Login</button>
-                </div>
-            </div>
+  <!--======================================================================-->
+  <!--=============================== HEADEER ==============================-->
+  <!--======================================================================-->
+  <header class="header" id="header">
+      <nav class="nav container">
+        <img
+          src="src/images/logo/Caesars_Palace_gym_logo.png"
+          alt="Logo"
+          class="nav__logo"
+        />
+        <div class="nav__toggle" id="nav-toggle">
+          <i class="ri-menu-line"></i>
         </div>
+        <div class="nav__menu_container" id="nav-menu">
+          <div class="nav__close" id="nav-close">
+            <i class="ri-close-circle-fill"></i>
+          </div>
+          <div class="nav__menu">
+            <ul class="nav__list">
+              <li><a href="index.html" class="nav__link">Home</a></li>
+                  <li><a href="about.html" class="nav__link">About</a></li>
+                  <li><a href="plans.html" class="nav__link">Plans</a></li>
+                  <li><a href="classes.html" class="nav__link">Classes</a></li>
+                  <li><a href="shop.html" class="nav__link">Shop</a></li>
+                  <li><a href="profile.html" class="nav__link">Profile</a></li>
+          </ul>
+          </div>
+          <div class="nav__search">
+            <div class="search_box">
+              <input type="search" placeholder="Search" />
+              <a href="#">
+                <i class="ri-search-eye-line scope"></i>
+              </a>
+            </div>
+            <div class="membership_bar">
+              <!-- Trigger Icon (remains the same) -->
+              <i id="cart-box" aria-controls="cart-icon" class="ri-shopping-bag-3-fill cartion"></i>
+
+              <!--=========================================-->
+              <!-- CART BOX -->
+              <div id="cart-icon" class="cart-icon" data-visible="false">
+              <!-- Top Bar: Title + Close Button -->
+              <div class="shopping">
+                  <p>Cart (4 items)</p>
+                  <i class="ri-close-circle-fill cartion"></i>
+              </div>
+
+              <!-- Cart Items Container -->
+              <div class="cart-items">
+                  <!-- Single Cart Item -->
+                  <div class="cart-item">
+                  <img
+                      src="https://via.placeholder.com/60"
+                      alt="Product 1"
+                      class="cart-item-img"
+                  />
+                  <div class="cart-item-info">
+                      <p class="cart-item-name">I'm a product</p>
+                      <p class="cart-item-meta">Color: Black</p>
+                      <div class="cart-item-quantity">
+                      <button class="quantity-btn">-</button>
+                      <input type="number" value="1" min="1" />
+                      <button class="quantity-btn">+</button>
+                      </div>
+                  </div>
+                  <div class="cart-item-price">
+                      <p>ZK85.00</p>
+                      <button class="remove-item">
+                      <i class="ri-delete-bin-line"></i>
+                      </button>
+                  </div>
+                  </div>
+
+                  <!-- Repeat for other items as needed -->
+                  <div class="cart-item">
+                  <img
+                      src="https://via.placeholder.com/60"
+                      alt="Product 2"
+                      class="cart-item-img"
+                  />
+                  <div class="cart-item-info">
+                      <p class="cart-item-name">I'm a product</p>
+                      <p class="cart-item-meta">ZK20.00</p>
+                      <div class="cart-item-quantity">
+                      <button class="quantity-btn">-</button>
+                      <input type="number" value="2" min="1" />
+                      <button class="quantity-btn">+</button>
+                      </div>
+                  </div>
+                  <div class="cart-item-price">
+                      <p>ZK40.00</p>
+                      <button class="remove-item">
+                      <i class="ri-delete-bin-line"></i>
+                      </button>
+                  </div>
+                  </div>
+
+                  <div class="cart-item">
+                  <img
+                      src="https://via.placeholder.com/60"
+                      alt="Product 3"
+                      class="cart-item-img"
+                  />
+                  <div class="cart-item-info">
+                      <p class="cart-item-name">I'm a product</p>
+                      <p class="cart-item-meta">Size: Large</p>
+                      <div class="cart-item-quantity">
+                      <button class="quantity-btn">-</button>
+                      <input type="number" value="1" min="1" />
+                      <button class="quantity-btn">+</button>
+                      </div>
+                  </div>
+                  <div class="cart-item-price">
+                      <p>ZK25.00</p>
+                      <button class="remove-item">
+                      <i class="ri-delete-bin-line"></i>
+                      </button>
+                  </div>
+                  </div>
+              </div>
+
+              <!-- Cart Summary -->
+              <div class="cart-summary">
+                  <p class="cart-subtotal">
+                  Subtotal <span>ZK150.00</span>
+                  </p>
+                  <p class="cart-taxes">Taxes and shipping are calculated at checkout.</p>
+                  <button class="cart-checkout">Checkout</button>
+                  <a href="#" class="cart-view">View Cart</a>
+              </div>
+              </div>
+              <!--=========================================-->
+
+              <button id="loginTrigger">Login</button>
+              <i class="ri-notification-2-fill cartion"></i>
+            </div>
+          </div>
+    
+        </div>
+      </nav>
+    </header>      
+  <!--======================================================================-->
+  <!--=============================== HEADEER ==============================-->
+  <!--======================================================================-->
+  <!-- Login Popup -->
+  <div class="login-modal-overlay" id="loginOverlay">
+    <div class="login-modal-container">
+      <span class="login-close-btn">&times;</span>
+      <div class="container">
+          <div class="form-box login">
+              <form action="">
+                  <h1>Login</h1>
+                  <div class="input-box">
+                      <input type="email" placeholder="Email" required>
+                      <i class='bx bxs-user' ></i>
+                  </div>
+                  <div class="input-box">
+                      <input type="password" placeholder="Password" required>
+                      <i class='bx bxs-lock-alt' ></i>
+                  </div>
+                  <div class="forgot-link">
+                      <a href="#">Forgot Password?</a>
+                  </div>
+                  <button type="submit" class="btn">Login</button>
+              </form>
+          </div>
+          <div class="form-box register">
+              <form action="">
+                  <h1>Registration</h1>
+                  <div class="input-box">
+                      <input type="text" placeholder="Full Name" required>
+                      <i class='bx bxs-user' ></i>
+                  </div>
+                  <div class="input-box">
+                      <input type="email" placeholder="Email" required>
+                      <i class='bx bxs-envelope'></i>
+                  </div>
+                  <div class="input-box">
+                      <input type="tel" placeholder="Phone Number" required>
+                      <i class='bx bxs-phone'></i>
+                  </div>
+                  <div class="input-box">
+                      <input type="date" placeholder="Date Of Birth" required>
+                      <i class='bx bxs-calendar'></i>
+                  </div>
+                  <div class="gender-box">
+                      <div class="gender-options">
+                          <label class="gender-option">
+                              <input type="radio" name="gender" value="male" required>
+                              <span>Male</span>
+                          </label>
+                          <label class="gender-option">
+                              <input type="radio" name="gender" value="female" required>
+                              <span>Female</span>
+                          </label>
+                      </div>
+                  </div>
+                  <div class="input-box">
+                      <input type="password" placeholder="Password" required>
+                      <i class='bx bxs-lock-alt' ></i>
+                  </div>
+                  <button type="submit" class="btn">Register</button>
+              </form>
+          </div>
+          <div class="toggle-box">
+              <div class="toggle-panel toggle-left">
+                  <h1>Hello, Welcome!</h1>
+                  <p>Don't have an account?</p>
+                  <button class="btn register-btn">Register</button>
+              </div>
+              <div class="toggle-panel toggle-right">
+                  <h1>Welcome Back!</h1>
+                  <p>Already have an account?</p>
+                  <button class="btn login-btn">Login</button>
+              </div>
+          </div>
       </div>
     </div>
-    
-    <!--=============== MAIN JS ===============-->
-    <script src="src/js/script.js"></script>
+  </div>
+
+  <!--================ PROFILE SECTION (Friend's Section) =================-->
+  <section id="profile-extra">
+    <div class="profile-container">
+      <!-- Personal Information -->
+      <article class="personal-info">
+        <div class="avatar"></div>
+        <header class="section-header">
+          <h2 class="section-title">Personal Details</h2>
+          <button class="edit-btn">Edit Profile</button>
+        </header>
+        
+        <dl class="info-group">
+          <dt class="info-label">Full Name</dt>
+          <dd class="info-value">John Doe</dd>
+          
+          <dt class="info-label">Email</dt>
+          <dd class="info-value">john@example.com</dd>
+          
+          <dt class="info-label">Phone</dt>
+          <dd class="info-value">+1 234 567 890</dd>
+          
+          <dt class="info-label">Date of Birth</dt>
+          <dd class="info-value">1990-01-01</dd>
+          
+          <dt class="info-label">Gender</dt>
+          <dd class="info-value">Male</dd>
+        </dl>
+      </article>
+  
+      <!-- Main Content -->
+      <div class="main-content">
+        <!-- Subscription Status -->
+        <article class="subscription-status">
+          <h2 class="section-title">Membership Status</h2>
+          <p class="status-badge active">Active - Gold Membership</p>
+          <dl class="info-group">
+            <dt class="info-label">Valid Until</dt>
+            <dd class="info-value">2024-12-31</dd>
+            
+            <dt class="info-label">Monthly Payment</dt>
+            <dd class="info-value">ZK30.00</dd>
+          </dl>
+        </article>
+  
+        <!-- Order History -->
+        <article class="orders-section">
+          <h2 class="section-title">Order History</h2>
+          <section class="order-item">
+            <div>
+              <h3 class="info-label">Order #001</h3>
+              <time class="info-value">2024-03-15</time>
+            </div>
+            <div>
+              <p class="info-label">Total</p>
+              <p class="info-value">ZK45.00</p>
+            </div>
+            <div>
+              <p class="info-label">Status</p>
+              <p class="info-value status-delivered">Delivered</p>
+            </div>
+          </section>
+        </article>
+  
+        <!-- Class Bookings -->
+        <article class="bookings-section">
+          <h2 class="section-title">Upcoming Classes</h2>
+          <section class="booking-item">
+            <div>
+              <h3 class="info-label">Base HIIT</h3>
+              <time class="info-value">Mon, 10:00 AM</time>
+            </div>
+            <div>
+              <p class="info-label">Duration</p>
+              <p class="info-value">45 mins</p>
+            </div>
+            <div>
+              <p class="info-label">Status</p>
+              <p class="info-value status-booked">Booked</p>
+            </div>
+          </section>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!--================ MAIN JS =================-->
+  <script src="src/js/script.js"></script>
 </body>
 </html>
