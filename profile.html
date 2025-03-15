@@ -201,6 +201,60 @@
         height: 80px;
       }
     }
+    .profile-container {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.info-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.5rem;
+}
+
+.detail-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.address-grid, .bank-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.address-item, .bank-item {
+  background: #f8f9fa;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.hobbies-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.hobby-badge {
+  background: #e9ecef;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .detail-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .address-grid, .bank-grid {
+    grid-template-columns: 1fr;
+  }
+}
   </style>
 </head>
 <body>
@@ -373,39 +427,10 @@
           <div class="form-box register">
               <form action="">
                   <h1>Registration</h1>
-                  <div class="input-box">
-                      <input type="text" placeholder="Full Name" required>
-                      <i class='bx bxs-user' ></i>
+                  <br><br>
+                  <div class="reg-btn">
+                      <a href="register.html">Register</a>
                   </div>
-                  <div class="input-box">
-                      <input type="email" placeholder="Email" required>
-                      <i class='bx bxs-envelope'></i>
-                  </div>
-                  <div class="input-box">
-                      <input type="tel" placeholder="Phone Number" required>
-                      <i class='bx bxs-phone'></i>
-                  </div>
-                  <div class="input-box">
-                      <input type="date" placeholder="Date Of Birth" required>
-                      <i class='bx bxs-calendar'></i>
-                  </div>
-                  <div class="gender-box">
-                      <div class="gender-options">
-                          <label class="gender-option">
-                              <input type="radio" name="gender" value="male" required>
-                              <span>Male</span>
-                          </label>
-                          <label class="gender-option">
-                              <input type="radio" name="gender" value="female" required>
-                              <span>Female</span>
-                          </label>
-                      </div>
-                  </div>
-                  <div class="input-box">
-                      <input type="password" placeholder="Password" required>
-                      <i class='bx bxs-lock-alt' ></i>
-                  </div>
-                  <button type="submit" class="btn">Register</button>
               </form>
           </div>
           <div class="toggle-box">
@@ -423,8 +448,7 @@
       </div>
     </div>
   </div>
-
-  <!--================ PROFILE SECTION (Friend's Section) =================-->
+  <!--================ PROFILE SECTION =================-->
   <section id="profile-extra">
     <div class="profile-container">
       <!-- Personal Information -->
@@ -436,76 +460,103 @@
         </header>
         
         <dl class="info-group">
-          <dt class="info-label">Full Name</dt>
-          <dd class="info-value">John Doe</dd>
-          
-          <dt class="info-label">Email</dt>
-          <dd class="info-value">john@example.com</dd>
-          
-          <dt class="info-label">Phone</dt>
-          <dd class="info-value">+1 234 567 890</dd>
+          <div class="detail-row">
+            <dt class="info-label">First Name</dt>
+            <dd class="info-value">John</dd>
+            
+            <dt class="info-label">Last Name</dt>
+            <dd class="info-value">Doe</dd>
+          </div>
+  
+          <dt class="info-label">NRC Number</dt>
+          <dd class="info-value">123456/78/9</dd>
           
           <dt class="info-label">Date of Birth</dt>
           <dd class="info-value">1990-01-01</dd>
           
           <dt class="info-label">Gender</dt>
           <dd class="info-value">Male</dd>
+  
+          <dt class="info-label">Client Type</dt>
+          <dd class="info-value">Business Person</dd>
         </dl>
       </article>
   
-      <!-- Main Content -->
-      <div class="main-content">
-        <!-- Subscription Status -->
-        <article class="subscription-status">
-          <h2 class="section-title">Membership Status</h2>
-          <p class="status-badge active">Active - Gold Membership</p>
-          <dl class="info-group">
-            <dt class="info-label">Valid Until</dt>
-            <dd class="info-value">2024-12-31</dd>
-            
-            <dt class="info-label">Monthly Payment</dt>
-            <dd class="info-value">ZK30.00</dd>
-          </dl>
-        </article>
+      <!-- Contact Information -->
+      <article class="info-card">
+        <h2 class="section-title">Contact Information</h2>
+        <dl class="info-group">
+          <dt class="info-label">Email</dt>
+          <dd class="info-value">john@example.com</dd>
+          
+          <dt class="info-label">Phone</dt>
+          <dd class="info-value">+1 234 567 890</dd>
+        </dl>
+      </article>
   
-        <!-- Order History -->
-        <article class="orders-section">
-          <h2 class="section-title">Order History</h2>
-          <section class="order-item">
-            <div>
-              <h3 class="info-label">Order #001</h3>
-              <time class="info-value">2024-03-15</time>
-            </div>
-            <div>
-              <p class="info-label">Total</p>
-              <p class="info-value">ZK45.00</p>
-            </div>
-            <div>
-              <p class="info-label">Status</p>
-              <p class="info-value status-delivered">Delivered</p>
-            </div>
-          </section>
-        </article>
+      <!-- Residential Address -->
+      <article class="info-card">
+        <h2 class="section-title">Residential Address</h2>
+        <div class="address-grid">
+          <div class="address-item">
+            <dt class="info-label">Physical Address</dt>
+            <dd class="info-value">123 Main Street</dd>
+          </div>
+          <div class="address-item">
+            <dt class="info-label">Area</dt>
+            <dd class="info-value">Downtown</dd>
+          </div>
+          <div class="address-item">
+            <dt class="info-label">Street</dt>
+            <dd class="info-value">Main Street</dd>
+          </div>
+          <div class="address-item">
+            <dt class="info-label">Town/City</dt>
+            <dd class="info-value">Metropolis</dd>
+          </div>
+          <div class="address-item">
+            <dt class="info-label">Province</dt>
+            <dd class="info-value">Central Province</dd>
+          </div>
+          <div class="address-item">
+            <dt class="info-label">Country</dt>
+            <dd class="info-value">Zambia</dd>
+          </div>
+        </div>
+      </article>
   
-        <!-- Class Bookings -->
-        <article class="bookings-section">
-          <h2 class="section-title">Upcoming Classes</h2>
-          <section class="booking-item">
-            <div>
-              <h3 class="info-label">Base HIIT</h3>
-              <time class="info-value">Mon, 10:00 AM</time>
-            </div>
-            <div>
-              <p class="info-label">Duration</p>
-              <p class="info-value">45 mins</p>
-            </div>
-            <div>
-              <p class="info-label">Status</p>
-              <p class="info-value status-booked">Booked</p>
-            </div>
-          </section>
-        </article>
-      </div>
+      <!-- Bank Details -->
+      <article class="info-card">
+        <h2 class="section-title">Bank Details</h2>
+        <div class="bank-grid">
+          <div class="bank-item">
+            <dt class="info-label">Bank Name</dt>
+            <dd class="info-value">National Bank</dd>
+          </div>
+          <div class="bank-item">
+            <dt class="info-label">Account Number</dt>
+            <dd class="info-value">1234-5678-9012</dd>
+          </div>
+          <div class="bank-item">
+            <dt class="info-label">Branch</dt>
+            <dd class="info-value">Main Branch</dd>
+          </div>
+          <div class="bank-item">
+            <dt class="info-label">Bank Address</dt>
+            <dd class="info-value">456 Finance Street</dd>
+          </div>
+        </div>
+      </article>
+  
+      <!-- Hobbies -->
+      <article class="info-card">
+        <h2 class="section-title">Hobbies</h2>
+        <div class="hobbies-container">
+          <span class="hobby-badge">Fitness</span>
+          <span class="hobby-badge">Reading</span>
+          <span class="hobby-badge">Traveling</span>
+        </div>
+      </article>
     </div>
   </section>
 

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <!-- Box Icons -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: #f0f2f5;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Registration Container */
+        .registration-container {
+            background: white;
+            width: 100%;
+            max-width: 800px;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            margin: 2rem;
+        }
+
+        /* Form Header */
+        .form-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .form-header h1 {
+            color: #2a2a72;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Form Sections */
+        .form-section {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .section-title {
+            color: #2a2a72;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            border-bottom: 2px solid #009ffd;
+            padding-bottom: 0.5rem;
+        }
+
+        /* Form Grid Layout */
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        /* Input Styles */
+        .input-group {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .input-group input,
+        .input-group select {
+            width: 100%;
+            padding: 12px 45px 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .input-group input:focus,
+        .input-group select:focus {
+            border-color: #009ffd;
+            outline: none;
+        }
+
+        .input-group i {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #666;
+            font-size: 20px;
+        }
+
+        /* Radio and Checkbox Styles */
+        .gender-options {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .gender-option {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .hobbies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .hobby-option {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #e9ecef;
+            padding: 0.5rem;
+            border-radius: 5px;
+        }
+
+        /* Button Styles */
+        button {
+            width: 100%;
+            padding: 15px;
+            background: #009ffd;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            margin-bottom: 10px;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #0077cc;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .registration-container {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+
+            .form-header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="registration-container">
+        <div class="form-header">
+            <h1>Create Account</h1>
+            <p>Please fill in all required fields</p>
+        </div>
+
+        <form id="registrationForm" onsubmit="return validateForm(event)">
+            <!-- Personal Details Section -->
+            <div class="form-section">
+                <h3 class="section-title">Personal Information</h3>
+                <div class="form-grid">
+                    <div class="input-group">
+                        <input type="text" placeholder="First Name" required>
+                        <i class='bx bx-user'></i>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" placeholder="Last Name" required>
+                        <i class='bx bx-user'></i>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" placeholder="NRC Number" required>
+                        <i class='bx bx-id-card'></i>
+                    </div>
+                    <div class="input-group">
+                        <input type="date" required>
+                        <i class='bx bx-calendar'></i>
+                    </div>
+                    <div class="input-group">
+                        <select required>
+                            <option value="">Client Type</option>
+                            <option>Student</option>
+                            <option>Worker</option>
+                            <option>Business Person</option>
+                        </select>
+                        <i class='bx bx-briefcase'></i>
+                    </div>
+                </div>
+
+                <div class="gender-options">
+                    <label class="gender-option">
+                        <input type="radio" name="gender" value="male" required>
+                        <span>Male</span>
+                    </label>
+                    <label class="gender-option">
+                        <input type="radio" name="gender" value="female" required>
+                        <span>Female</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="form-section">
+                <h3 class="section-title">Contact Details</h3>
+                <div class="form-grid">
+                    <div class="input-group">
+                        <input type="email" placeholder="Email Address" required>
+                        <i class='bx bx-envelope'></i>
+                    </div>
+                    <div class="input-group">
+                        <input type="tel" placeholder="Phone Number" required>
+                        <i class='bx bx-phone'></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Address Section -->
+            <div class="form-section">
+                <h3 class="section-title">Residential Address</h3>
+                <div class="form-grid">
+                    <div class="input-group">
+                        <input type="text" placeholder="Physical Address" required>
+                        <i class='bx bx-building-house'></i>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" placeholder="Area" required>
+                        <i class='bx bx-map'></i>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" placeholder="Street" required>
+                        <i class='bx bx-road'></i>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" placeholder="Town/City" required>
+                        <i class='bx bx-city'></i>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" placeholder="Province" required>
+                        <i class='bx bx-map-alt'></i>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" placeholder="Country" required>
+                        <i class='bx bx-flag'></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bank Details -->
+            <div class="form-section">
+                <h3 class="section-title">Bank Information</h3>
+                <div class="form-grid">
+                    <div class="input-group">
+                        <input type="text" placeholder="Bank Name" required>
+                        <i class='bx bx-bank'></i>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" placeholder="Account Number" required>
+                        <i class='bx bx-credit-card'></i>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" placeholder="Bank Branch" required>
+                        <i class='bx bx-building'></i>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" placeholder="Bank Address" required>
+                        <i class='bx bx-map-pin'></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hobbies -->
+            <div class="form-section">
+                <h3 class="section-title">Hobbies</h3>
+                <div class="hobbies-grid">
+                    <label class="hobby-option">
+                        <input type="checkbox" name="hobbies" value="sports">
+                        <span>Sports</span>
+                    </label>
+                    <label class="hobby-option">
+                        <input type="checkbox" name="hobbies" value="reading">
+                        <span>Reading</span>
+                    </label>
+                    <label class="hobby-option">
+                        <input type="checkbox" name="hobbies" value="music">
+                        <span>Music</span>
+                    </label>
+                    <label class="hobby-option">
+                        <input type="checkbox" name="hobbies" value="travel">
+                        <span>Travel</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Password -->
+            <div class="form-section">
+                <h3 class="section-title">Account Security</h3>
+                <div class="form-grid">
+                    <div class="input-group">
+                        <input type="password" placeholder="Password" required>
+                        <i class='bx bx-lock-alt'></i>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" placeholder="Confirm Password" required>
+                        <i class='bx bx-lock'></i>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn">Register Now</button>
+        </form>
+        <button onclick="goToHome()">Go to Home</button>
+    </div>
+
+    <script>
+
+        function goToHome() {
+            window.location.href = 'index.html';
+        }
+
+        function validateForm(event) {
+            event.preventDefault();
+            
+            const form = document.getElementById('registrationForm');
+            const password = form.querySelector('input[type="password"]');
+            const confirmPassword = form.querySelectorAll('input[type="password"]')[1];
+
+            // Password match validation
+            if(password.value !== confirmPassword.value) {
+                alert('Passwords do not match!');
+                return false;
+            }
+
+            // Add more validations as needed
+            
+            // If validation passes
+            alert('Registration submitted successfully!');
+            form.reset();
+            return false; // Remove this line when connecting to backend
+        }
+
+        // Add real-time validation if needed
+        document.querySelectorAll('input').forEach(input => {
+            input.addEventListener('input', () => {
+                if(input.checkValidity()) {
+                    input.style.borderColor = '#009ffd';
+                } else {
+                    input.style.borderColor = '#e0e0e0';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

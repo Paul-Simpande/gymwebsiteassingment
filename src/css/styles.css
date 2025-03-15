@@ -605,63 +605,21 @@ body, html {
   color: #888;
 }
 
-.login-modal-overlay .gender-box{
-  width: 100%;
-}
-
-.login-modal-overlay .gender-options {
-  width: 100%;
+.reg-btn{
   display: flex;
-  gap: 15px;
-}
-
-.login-modal-overlay .gender-option {
-  flex: 1;
-  background-color: #eee;
-  border-radius: 8px;
-  padding: 13px 20px;
-  display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 10px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  border: 2px solid transparent;
-}
-
-.login-modal-overlay .gender-option:hover {
-  background-color: #e4e4e4;
-}
-
-.login-modal-overlay .gender-option input[type="radio"] {
-  display: none;
-}
-
-.login-modal-overlay .gender-option span {
-  font-size: 16px;
-  color: #333;
-  font-weight: 500;
-}
-
-.login-modal-overlay .gender-option span::before {
-  content: "";
-  display: inline-block;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  border: 2px solid #888;
-  background-color: white;
-  transition: all 0.3s ease;
-  margin-right: 10px;
-}
-
-.login-modal-overlay .gender-option input[type="radio"]:checked + span::before {
-  border-color: #7494ec;
+  text-align: center;
   background-color: #7494ec;
-  background-image: radial-gradient(circle at center, white 0%, white 35%, transparent 40%);
+  height: 46px;
+  width: 160px;
+  justify-self: center;
+  border-radius: 8px;
 }
-
-.login-modal-overlay .gender-option input[type="radio"]:focus + span::before {
-  box-shadow: 0 0 3px rgba(116, 148, 236, 0.5);
+.reg-btn a{
+  color: #fff;
+  font-weight: var(--font-bold);
+  font-size: 16px;
 }
 
 
