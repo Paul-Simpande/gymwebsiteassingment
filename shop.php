@@ -249,8 +249,8 @@
                         <div class="price-range">
                             <input type="range" class="slider" min="7" max="130" value="130">
                             <div class="price-limits">
-                                <span>ZMW7</span>
-                                <span>ZMW130</span>
+                                <span>ZMK7</span>
+                                <span>ZMK130</span>
                             </div>
                         </div>
                     </div>
@@ -288,7 +288,7 @@
                                     alt="<?php echo htmlspecialchars($product['product_name']); ?>">
                             </div>
                             <h3><?php echo htmlspecialchars($product['product_name']); ?></h3>
-                            <p class="price">ZMW<?php echo number_format($product['starting_price'], 2); ?></p>
+                            <p class="price">ZMK<?php echo number_format($product['starting_price'], 2); ?></p>
                         </div>
                         <?php endforeach; ?>
                     </div>
