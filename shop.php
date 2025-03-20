@@ -210,13 +210,33 @@
         <!--======================================================================-->
         <!--=============================== PRODUCTS =============================-->
         <!--======================================================================-->
+        <?php
+            // Database connection
+            $servername = "localhost";
+            $username = "root";
+            $password = "";
+            $dbname = "caesers_palace_db";
+
+            $conn = new mysqli($servername, $username, $password, $dbname);
+
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+            }
+
+            // Fetch products
+            $sql = "SELECT * FROM product_view";
+            $result = $conn->query($sql);
+            $products = $result->fetch_all(MYSQLI_ASSOC);
+            $product_count = count($products);
+            $conn->close();
+        ?>
         <section class="product-section">
             <div class="breadcrumb">
                 <a href="index.html">Home</a> &gt; <span>All Products</span>
             </div>
             <div class="section-header">
                 <h1>All Products</h1>
-                <span class="product-count">12 products</span>
+                <span class="product-count"><?php echo $product_count; ?> products</span>
             </div>
             
             <button class="mobile-filter-trigger">☰ Filter & Sort</button>
@@ -257,52 +277,20 @@
 
                 <div class="product-grid">
                     <div class="sorting">
-                        <span>Sort by:</span>
-                        <select>
-                            <option>Recommended</option>
-                            <option>Best Seller</option>
-                            <option>Price Low-High</option>
-                            <option>Price High-Low</option>
-                        </select>
+                        <!-- Sorting options remain unchanged -->
                     </div>
-        
+
                     <div class="products">
-                        <!-- Product Card -->
+                        <?php foreach ($products as $product): ?>
                         <div class="product-card">
                             <div class="product-image">
-                                <span class="best-seller">Best Seller</span>
-                                <!-- Add image here -->
+                                <img src="<?php echo htmlspecialchars($product['primary_image']); ?>" 
+                                    alt="<?php echo htmlspecialchars($product['product_name']); ?>">
                             </div>
-                            <h3>I'm a product</h3>
-                            <p class="price">ZK10.00</p>
+                            <h3><?php echo htmlspecialchars($product['product_name']); ?></h3>
+                            <p class="price">ZMW<?php echo number_format($product['starting_price'], 2); ?></p>
                         </div>
-        
-                        <!-- Repeat product cards -->
-                        <div class="product-card">
-                            <div class="product-image">
-                                <!-- Add image here -->
-                            </div>
-                            <h3>I'm a product</h3>
-                            <p class="price">ZK25.00</p>
-                        </div>
-                        
-                        <div class="product-card">
-                            <div class="product-image">
-                                <!-- Add image here -->
-                            </div>
-                            <h3>I'm a product</h3>
-                            <p class="price">ZK25.00</p>
-                        </div>
-                        
-                        <div class="product-card">
-                            <div class="product-image">
-                                <!-- Add image here -->
-                            </div>
-                            <h3>I'm a product</h3>
-                            <p class="price">ZK25.00</p>
-                        </div>
-                        
-                        <!-- Add remaining product cards -->
+                        <?php endforeach; ?>
                     </div>
                 </div>
             </div>
