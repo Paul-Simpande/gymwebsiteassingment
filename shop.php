@@ -282,7 +282,7 @@
 
                     <div class="products">
                         <?php foreach ($products as $product): ?>
-                        <div class="product-card">
+                        <div class="product-card" onclick="window.location.href='product.php?id=<?php echo $product['product_id']; ?>'">
                             <div class="product-image">
                                 <img src="<?php echo htmlspecialchars($product['primary_image']); ?>" 
                                     alt="<?php echo htmlspecialchars($product['product_name']); ?>">

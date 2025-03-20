@@ -1319,7 +1319,8 @@ video {
   border-radius: 8px;
   display: flex;
   flex-direction: column;
-  height: 100%; /* Ensure consistent card heights */
+  height: 100%;
+  cursor: pointer;
 }
 
 .product-card:hover {

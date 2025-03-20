@@ -235,107 +235,153 @@
     </style>
 </head>
 <body>
+    <?php
+        if (!isset($_GET['id'])) {
+            header("Location: shop.php");
+            exit();
+        }
+
+        $product_id = intval($_GET['id']);
+
+        // Database connection
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "caesers_palace_db";
+
+        $conn = new mysqli($servername, $username, $password, $dbname);
+
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+        $sql = "SELECT * FROM product_view WHERE product_id = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("i", $product_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $product = $result->fetch_assoc();
+
+        $conn->close();
+
+        if (!$product) {
+            header("Location: shop.php");
+            exit();
+        }
+    ?>
     <div class="product-section">
-        <div class="product-header">
-            <h1>Realistic Frame for Your Projects</h1>
-            <div class="product-meta">
-                <span class="product-code">SOL 36K25A#224523</span>
-                <span class="product-sub">3x22x412x423</span>
-            </div>
+    <div class="breadcrumb">
+    <a href="shop.php">‹ Back to Shop</a>
+</div>
+
+<div class="product-header">
+    <h1><?php echo htmlspecialchars($product['product_name']); ?></h1>
+    <div class="product-meta">
+        <span class="product-code"><?php echo htmlspecialchars($product['product_code']); ?></span>
+        <span class="product-sub"><?php echo htmlspecialchars($product['product_sub_code']); ?></span>
+    </div>
+</div>
+
+<div class="product-container">
+    <div class="product-images">
+        <div class="main-image">
+            <img src="<?php echo htmlspecialchars($product['primary_image']); ?>" alt="<?php echo htmlspecialchars($product['product_name']); ?>">
         </div>
+    </div>
+    <div class="product-details">
+    <div class="price">ZMK<?php echo number_format($product['starting_price'], 2); ?></div>
+    
+    <div class="quantity-selector">
+        <label>Quantity</label>
+        <div class="qty-input">
+            <button class="qty-btn">-</button>
+            <input type="number" value="1" min="1">
+            <button class="qty-btn">+</button>
+        </div>
+    </div>
 
-        <div class="product-container">
-            <div class="product-images">
-                <div class="main-image">
-                    <div class="image-placeholder"></div>
-                </div>
-                <div class="image-nav">
-                    <button class="nav-btn">‹</button>
-                    <button class="nav-btn">›</button>
-                </div>
-            </div>
+    <button class="add-to-cart">Add to Cart</button>
 
-            <div class="product-details">
-                <div class="price">ZK15.00</div>
+    <div class="product-info-tabs" role="tablist">
+        <div class="tab active" role="tab" aria-selected="true" data-tab="description">Description</div>
+        <div class="tab" role="tab" aria-selected="false" data-tab="details">Details</div>
+        <div class="tab" role="tab" aria-selected="false" data-tab="shipping">Shipping</div>
+        <div class="tab" role="tab" aria-selected="false" data-tab="returns">Returns</div>
+    </div>
+
+    <div class="info-content">
+        <div class="tab-content active" id="description" role="tabpanel">
+            <p><?php echo nl2br(htmlspecialchars($product['product_description'])); ?></p>
+            <div class="product-specs">
+                <?php if($product['available_sizes']) : ?>
+                <p><strong>Available Sizes:</strong> <?php echo htmlspecialchars($product['available_sizes']); ?></p>
+                <?php endif; ?>
                 
-                <div class="quantity-selector">
-                    <label>Quantity</label>
-                    <div class="qty-input">
-                        <button class="qty-btn">-</button>
-                        <input type="number" value="1" min="1">
-                        <button class="qty-btn">+</button>
-                    </div>
+                <?php if($product['available_colors']) : ?>
+                <p><strong>Available Colors:</strong> <?php echo htmlspecialchars($product['available_colors']); ?></p>
+                <?php endif; ?>
+                
+                <p><strong>Base Price:</strong> ZMK<?php echo number_format($product['base_price'], 2); ?></p>
+            </div>
+        </div>
+
+        <div class="tab-content" id="details" role="tabpanel">
+            <div class="spec-grid">
+                <?php if($product['available_sizes']) : ?>
+                <div class="spec-item">
+                    <h4>Sizes Available</h4>
+                    <p><?php echo htmlspecialchars($product['available_sizes']); ?></p>
+                </div>
+                <?php endif; ?>
+
+                <?php if($product['available_colors']) : ?>
+                <div class="spec-item">
+                    <h4>Color Options</h4>
+                    <p><?php echo htmlspecialchars($product['available_colors']); ?></p>
+                </div>
+                <?php endif; ?>
+
+                <div class="spec-item">
+                    <h4>Product Code</h4>
+                    <p><?php echo htmlspecialchars($product['product_code']); ?></p>
                 </div>
 
-                <button class="add-to-cart">Add to Cart</button>
-
-                <div class="product-info-tabs" role="tablist">
-                    <div class="tab active" role="tab" aria-selected="true" data-tab="description">Description</div>
-                    <div class="tab" role="tab" aria-selected="false" data-tab="details">Details</div>
-                    <div class="tab" role="tab" aria-selected="false" data-tab="shipping">Shipping</div>
-                    <div class="tab" role="tab" aria-selected="false" data-tab="returns">Returns</div>
-                </div>
-
-                <div class="info-content">
-                    <div class="tab-content active" id="description" role="tabpanel">
-                        <p>A premium realistic frame designed for professional presentations and creative projects. Perfect for architects, designers, and artists who need to showcase their work in style.</p>
-                        <div class="product-specs">
-                            <p><strong>Material:</strong> Recycled ABS plastic</p>
-                            <p><strong>Dimensions:</strong> 30×40cm (12×16")</p>
-                            <p><strong>Weight:</strong> 450g</p>
-                            <p><strong>Finish:</strong> Matte black with anti-reflective glass</p>
-                        </div>
-                    </div>
-
-                    <div class="tab-content" id="details" role="tabpanel">
-                        <div class="spec-grid">
-                            <div class="spec-item">
-                                <h4>Construction</h4>
-                                <p>Durable ABS frame with 2mm safety glass</p>
-                            </div>
-                            <div class="spec-item">
-                                <h4>Mounting</h4>
-                                <p>Includes wall hooks and rubber bumpers</p>
-                            </div>
-                            <div class="spec-item">
-                                <h4>Compatibility</h4>
-                                <p>Fits A3 paper (297×420mm)</p>
-                            </div>
-                            <div class="spec-item">
-                                <h4>Care Instructions</h4>
-                                <p>Clean with microfiber cloth only</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tab-content" id="shipping" role="tabpanel">
-                        <div class="shipping-info">
-                            <div class="shipping-method">
-                                <h4>Standard Shipping</h4>
-                                <p>ZK5.00 - 3-5 business days</p>
-                            </div>
-                            <div class="shipping-method">
-                                <h4>Express Shipping</h4>
-                                <p>ZK10.00 - 1-2 business days</p>
-                            </div>
-                            <p class="shipping-note">* Orders processed within 24hrs<br>* International shipping available</p>
-                        </div>
-                    </div>
-
-                    <div class="tab-content" id="returns" role="tabpanel">
-                        <div class="returns-info">
-                            <p>30-day satisfaction guarantee:</p>
-                            <ul>
-                                <li>Original packaging required</li>
-                                <li>Undamaged items only</li>
-                                <li>Free returns for defective items</li>
-                                <li>Refunds processed within 5 business days</li>
-                            </ul>
-                        </div>
-                    </div>
+                <div class="spec-item">
+                    <h4>Inventory</h4>
+                    <p><?php echo $product['total_stock'] > 0 ? 'In Stock' : 'Out of Stock'; ?></p>
                 </div>
             </div>
         </div>
+
+        <!-- Shipping and Returns tabs remain static as they're not in the database -->
+        <div class="tab-content" id="shipping" role="tabpanel">
+            <div class="shipping-info">
+                <div class="shipping-method">
+                    <h4>Standard Shipping</h4>
+                    <p>ZMK5.00 - 3-5 business days</p>
+                </div>
+                <div class="shipping-method">
+                    <h4>Express Shipping</h4>
+                    <p>ZMK10.00 - 1-2 business days</p>
+                </div>
+                <p class="shipping-note">* Orders processed within 24hrs<br>* International shipping available</p>
+            </div>
+        </div>
+
+        <div class="tab-content" id="returns" role="tabpanel">
+            <div class="returns-info">
+                <p>30-day satisfaction guarantee:</p>
+                <ul>
+                    <li>Original packaging required</li>
+                    <li>Undamaged items only</li>
+                    <li>Free returns for defective items</li>
+                    <li>Refunds processed within 5 business days</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
     </div>
 
     <script>
